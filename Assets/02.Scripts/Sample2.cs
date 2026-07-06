@@ -13,17 +13,17 @@ public class Sample2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.dKey.isPressed) //this.rbody.linearVelocityX < this.LMaxSpeed)
+        if (Input.GetKey(KeyCode.D)) //this.rbody.linearVelocityX < this.LMaxSpeed)
         {
             rbody.AddTorque(-torquePower);
         }
 
-        if (Keyboard.current.aKey.isPressed) //&& this.rbody.linearVelocityX < this.RMaxSpeed)
+        if (Input.GetKey(KeyCode.A)) //&& this.rbody.linearVelocityX < this.RMaxSpeed)
         {
             rbody.AddTorque(torquePower);
         }
 
-        if (Keyboard.current.spaceKey.isPressed)
+        if (Input.GetKeyDown    (KeyCode.Space))
         {
             this.rbody.AddForce(transform.up * JumpPower);
         }
