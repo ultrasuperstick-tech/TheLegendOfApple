@@ -24,7 +24,7 @@ public class AppleContorller : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (transform.position.y <= -2f)
         {
@@ -61,7 +61,7 @@ public class AppleContorller : MonoBehaviour
     void Jump()
     {
         // 스페이스 키를 누르고 linearVelocityY가 0 이라면 Vector2.up 에 jumpPower만큼 곱해 위로 힘을 준다.
-        if (Input.GetKey(KeyCode.Space) && this.rBody.linearVelocityY == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && this.rBody.linearVelocityY == 0)
         {
             rBody.AddForce(Vector2.up * jumpPower);
         }
