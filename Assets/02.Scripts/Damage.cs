@@ -14,6 +14,6 @@ public class Damage : MonoBehaviour
 
     void GetDamage()
     {
-
+        
     }
 }
