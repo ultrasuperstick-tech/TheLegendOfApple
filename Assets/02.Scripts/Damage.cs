@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    public GameObject hpBar;
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // if (collision.gameObject == "Bug")
