@@ -4,21 +4,36 @@ using UnityEngine.UI;
 //이 클래스는 HpBar를 조절하는 역할을 가지고 있습니다.
 public class Health : MonoBehaviour
 {
+    public Rigidbody2D rBody;
     public GameObject hpBar;
+    public float hp;
+    float Damage;
+    public WormDamage wormDamage;
+    public float knockbackPower;
+
 
     private void Start()
     {
-
+        rBody = GetComponent<Rigidbody2D>();
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // if (collision.gameObject == "Bug")
-        // 만약에 충돌체의 태그가 "Bug"와 같다면...
-        if (collision.gameObject.CompareTag("Bug"))
         {
-            // 나의 Hp가 깎이는 일.
-            hpBar.GetComponent<Image>().fillAmount -= 0.1f;
+            Vector2 knockbackDirection = new Vector2(-1f, 1f);
+            
+            if (wormDamage != null)
+            {
+                Damage = wormDamage.wormDamage * 0.01f;
+            }
+
+            if (collision.gameObject.CompareTag("Bug"))
+            {
+                hpBar.GetComponent<Image>().fillAmount -= Damage;
+                rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
+            }
+
         }
     }
 }

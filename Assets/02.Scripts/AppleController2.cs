@@ -57,7 +57,7 @@ public class AppleController2 : MonoBehaviour
             rBody.linearVelocity = new Vector2(-maxMoveSpeed, rBody.linearVelocity.y);
         }
 
-        // 이동 속도는 유지하면서 그림만 천천히 회전(이건 AI)
+        // 이동 속도는 유지하면서 그림만 천천히 회전
         if (appleVisual != null)
         {
             float rotateAmount = -rBody.linearVelocity.x * rollingSpeed * Time.fixedDeltaTime;

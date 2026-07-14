@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: da17d2f021c72de46bafd82b09b4f8b9
+guid: b36b0017b5db1c64588959d4cd093eab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5190023795572221895
-    second: Slope_Grass_Top_Center_Tile_128x128_RGBA_0
+      213: 4228207314295858237
+    second: Dirt_Wall_Right_Tile_128x128_RGBA_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slope_Grass_Top_Center_Tile_128x128_RGBA_0
+      name: Dirt_Wall_Right_Tile_128x128_RGBA_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c728e6e42ba60840800000000000000
-      internalID: 5190023795572221895
+      spriteID: d34205d762c9daa30800000000000000
+      internalID: 4228207314295858237
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Slope_Grass_Top_Center_Tile_128x128_RGBA_0: 5190023795572221895
+      Dirt_Wall_Right_Tile_128x128_RGBA_0: 4228207314295858237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

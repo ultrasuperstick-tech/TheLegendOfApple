@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: da17d2f021c72de46bafd82b09b4f8b9
+guid: 5a8a442c8e5d6ab429dab2df08affd24
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5190023795572221895
-    second: Slope_Grass_Top_Center_Tile_128x128_RGBA_0
+      213: 5121224212410418888
+    second: Slope_Grass_Middle_Outer_Left_Tile_128x128_RGBA_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slope_Grass_Top_Center_Tile_128x128_RGBA_0
+      name: Slope_Grass_Middle_Outer_Left_Tile_128x128_RGBA_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 128
+        width: 127
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c728e6e42ba60840800000000000000
-      internalID: 5190023795572221895
+      spriteID: 8c64adba94e321740800000000000000
+      internalID: 5121224212410418888
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Slope_Grass_Top_Center_Tile_128x128_RGBA_0: 5190023795572221895
+      Slope_Grass_Middle_Outer_Left_Tile_128x128_RGBA_0: 5121224212410418888
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
