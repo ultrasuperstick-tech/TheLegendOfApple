@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AppleController2 : MonoBehaviour
+public class AppleController : MonoBehaviour
 {
 
     public Rigidbody2D rBody;
@@ -65,4 +65,5 @@ public class AppleController2 : MonoBehaviour
             appleVisual.Rotate(0f, 0f, rotateAmount);
         }
     }
+
 }
