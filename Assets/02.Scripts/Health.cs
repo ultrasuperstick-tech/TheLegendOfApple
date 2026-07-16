@@ -1,39 +1,70 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 //이 클래스는 HpBar를 조절하는 역할을 가지고 있습니다.
 public class Health : MonoBehaviour
 {
-    public Rigidbody2D rBody;
-    public GameObject hpBar;
-    public float hp;
-    float Damage;
-    public WormDamage wormDamage;
+    Rigidbody2D rBody;
+    AppleController appleController;
+    Image hpBar;
+    TMP_Text hpText;
+    GameObject hpBarObject;
+    GameObject hpTextObject;
+    public float maxHp = 100f;
+    public float hp = 100f;
     public float knockbackPower;
+    float knockbackDir;
 
+
+    private void Awake()
+    {
+        //캐싱
+        rBody = GetComponent<Rigidbody2D>();
+        appleController = GetComponent<AppleController>();
+        hpBarObject = GameObject.Find("HpBar");
+        hpBar = hpBarObject.GetComponent<Image>();
+        hpTextObject = GameObject.Find("HpText");
+        hpText = hpTextObject.GetComponent<TMP_Text>();
+
+    }
 
     private void Start()
     {
-        rBody = GetComponent<Rigidbody2D>();
+        hp = maxHp;
+    }
+
+    private void Update()
+    {
+        
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Bug"))
         {
-            Vector2 knockbackDirection = new Vector2(-1f, 1f);
+            WormDamage wormDamage = collision.gameObject.GetComponent<WormDamage>();
             
-            if (wormDamage != null)
-            {
-                Damage = wormDamage.wormDamage * 0.01f;
-            }
+            GetDamage(wormDamage.damage);
 
-            if (collision.gameObject.CompareTag("Bug"))
-            {
-                hpBar.GetComponent<Image>().fillAmount -= Damage;
-                rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
-            }
-
+            KnockBack();
         }
+    }
+
+    void GetDamage(float damage)
+    {
+        hp = hp - damage;
+
+        hpBar.fillAmount = hp / maxHp;
+        hpText.text = hpBar.fillAmount * 100 + "%";
+    }
+
+    void KnockBack(float wormPosX)
+    {
+        Vector2 knockbackDirection = new Vector2(knockbackDir, 1f);
+
+        rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
+            
     }
 }

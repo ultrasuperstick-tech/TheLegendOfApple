@@ -3,7 +3,7 @@ using UnityEngine;
 public class AppleController : MonoBehaviour
 {
 
-    public Rigidbody2D rBody;
+    Rigidbody2D rBody;
     public Transform appleVisual;
 
     public float movePower = 20f;
@@ -26,6 +26,16 @@ public class AppleController : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        AppleMove();
+
+        MaxMoveSpeed();
+
+        AppleSpin();
+    }
+
+    void AppleMove()
+    {
         float moveInput = 0f;
 
         if (Input.GetKey(KeyCode.D))
@@ -47,16 +57,11 @@ public class AppleController : MonoBehaviour
         // 좌우로 이동
         rBody.AddForce(Vector2.right * moveInput * movePower);
 
-        // 최대 이동 속도 제한
-        if (rBody.linearVelocity.x > maxMoveSpeed)
-        {
-            rBody.linearVelocity = new Vector2(maxMoveSpeed, rBody.linearVelocity.y);
-        }
-        else if (rBody.linearVelocity.x < -maxMoveSpeed)
-        {
-            rBody.linearVelocity = new Vector2(-maxMoveSpeed, rBody.linearVelocity.y);
-        }
+        
+    }
 
+    void AppleSpin()
+    {
         // 이동 속도는 유지하면서 그림만 천천히 회전
         if (appleVisual != null)
         {
@@ -66,4 +71,16 @@ public class AppleController : MonoBehaviour
         }
     }
 
+    void MaxMoveSpeed()
+    {
+        // 최대 이동 속도 제한
+        if (rBody.linearVelocity.x > maxMoveSpeed)
+        {
+            rBody.linearVelocity = new Vector2(maxMoveSpeed, rBody.linearVelocity.y);
+        }
+        else if (rBody.linearVelocity.x < -maxMoveSpeed)
+        {
+            rBody.linearVelocity = new Vector2(-maxMoveSpeed, rBody.linearVelocity.y);
+        }
+    }
 }
