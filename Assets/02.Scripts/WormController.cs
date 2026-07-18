@@ -8,6 +8,7 @@ public class WormController : MonoBehaviour
     public GameObject wP_R;
     public float wormSpeed = 1f;
     int wormDir = 1;
+    
 
     private void Start()
     {

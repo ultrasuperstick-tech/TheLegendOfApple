@@ -14,8 +14,6 @@ public class Health : MonoBehaviour
     public float maxHp = 100f;
     public float hp = 100f;
     public float knockbackPower;
-    float knockbackDir;
-
 
     private void Awake()
     {
@@ -26,6 +24,7 @@ public class Health : MonoBehaviour
         hpBar = hpBarObject.GetComponent<Image>();
         hpTextObject = GameObject.Find("HpText");
         hpText = hpTextObject.GetComponent<TMP_Text>();
+        
 
     }
 
@@ -45,10 +44,11 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Bug"))
         {
             WormDamage wormDamage = collision.gameObject.GetComponent<WormDamage>();
-            
+            float WormPosX = collision.gameObject.transform.position.x;
+
             GetDamage(wormDamage.damage);
 
-            KnockBack();
+            KnockBack(WormPosX);
         }
     }
 
@@ -62,6 +62,17 @@ public class Health : MonoBehaviour
 
     void KnockBack(float wormPosX)
     {
+        float knockbackDir = 1f;
+
+        if (wormPosX < this.gameObject.transform.position.x)
+        {
+            knockbackDir = 1;
+        }
+        else
+        {
+            knockbackDir = -1;
+        }
+
         Vector2 knockbackDirection = new Vector2(knockbackDir, 1f);
 
         rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
