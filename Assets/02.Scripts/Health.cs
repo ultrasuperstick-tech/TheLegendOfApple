@@ -49,9 +49,17 @@ public class Health : MonoBehaviour
             GetDamage(wormDamage.damage);
 
             KnockBack(WormPosX);
+
+            GetDamage = null;
+
+            
         }
     }
 
+    void BeInvincible()
+    {
+
+    }
     void GetDamage(float damage)
     {
         hp = hp - damage;

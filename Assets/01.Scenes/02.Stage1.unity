@@ -6996,7 +6996,7 @@ MonoBehaviour:
   appleVisual: {fileID: 1264498382}
   movePower: 100
   maxMoveSpeed: 2
-  jumpPower: 600
+  jumpPower: 300
   rollingSpeed: 200
 --- !u!60 &1264498388
 PolygonCollider2D:
@@ -7347,7 +7347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce683bcd767d8049aeb492eabe9b4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WormDamage
-  wormDamage: 10
+  damage: 10
 --- !u!1 &2058131989
 GameObject:
   m_ObjectHideFlags: 0
