@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 476420017}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WormGorup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 476420016}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.64, y: -0.52, z: 0}
+  m_LocalPosition: {x: 1, y: -1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6822,7 +6822,8 @@ GameObject:
   - component: {fileID: 1264498387}
   - component: {fileID: 1264498386}
   - component: {fileID: 1264498388}
-  m_Layer: 0
+  - component: {fileID: 1264498389}
+  m_Layer: 6
   m_Name: Apple
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6960,7 +6961,7 @@ Transform:
   m_GameObject: {fileID: 1264498378}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.504, y: -0.806, z: 0}
+  m_LocalPosition: {x: 8.37, y: -0.55, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6980,7 +6981,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHp: 100
   hp: 100
-  knockbackPower: 10
+  knockbackPower: 7
+  timer: 0
+  timer2: 0
+  invincibleTime: 3
+  defenselessTime: 1
 --- !u!114 &1264498387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7076,6 +7081,28 @@ PolygonCollider2D:
       - {x: 0.85499996, y: -0.89}
       - {x: 0.955, y: -0.74}
   m_UseDelaunayMesh: 1
+--- !u!95 &1264498389
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264498378}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecb4c4af1e4039b47aba9c087deb85d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1431221624
 GameObject:
   m_ObjectHideFlags: 0
@@ -7085,7 +7112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1431221625}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WayPoint1_R
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -7166,7 +7193,7 @@ GameObject:
   - component: {fileID: 1966943833}
   - component: {fileID: 1966943834}
   - component: {fileID: 1966943835}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Worm_1
   m_TagString: Bug
   m_Icon: {fileID: 0}
@@ -7288,7 +7315,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.11599983, y: -0.29399997, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 476420017}
@@ -7357,7 +7384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058131990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WayPoint1_L
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
