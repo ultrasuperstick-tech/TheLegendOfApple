@@ -14,6 +14,11 @@ public class Health : MonoBehaviour
     public float maxHp = 100f;
     public float hp = 100f;
     public float knockbackPower;
+    public float timer = 0;
+    public float timer2 = 0;
+    public float invincibleTime = 3f;
+    public float defenselessTime = 3f;
+    bool layerCollision = false;
 
     private void Awake()
     {
@@ -24,8 +29,6 @@ public class Health : MonoBehaviour
         hpBar = hpBarObject.GetComponent<Image>();
         hpTextObject = GameObject.Find("HpText");
         hpText = hpTextObject.GetComponent<TMP_Text>();
-        
-
     }
 
     private void Start()
@@ -35,9 +38,31 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        
-    }
+        // 시간체크해서 일정시간 지나면 충돌가능하게 변경 - 레이어 충돌 넣기
 
+        if (layerCollision == true)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if (layerCollision == true && timer > invincibleTime)
+        {
+            layerCollision = false;
+            Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
+            timer = 0;
+        }
+
+        if (appleController.enabled == false)
+        {
+            timer2 += Time.deltaTime;
+        }
+
+        if (appleController.enabled == false && timer2 > defenselessTime)
+        {
+            appleController.enabled = true;
+            timer2 = 0;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,6 +74,11 @@ public class Health : MonoBehaviour
             GetDamage(wormDamage.damage);
 
             KnockBack(WormPosX);
+
+            // 레이어 충돌 해제
+            layerCollision = true;
+
+            Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
         }
     }
 
@@ -76,6 +106,9 @@ public class Health : MonoBehaviour
         Vector2 knockbackDirection = new Vector2(knockbackDir, 1f);
 
         rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
-            
+
+        appleController.enabled = false;
+
+        
     }
 }
