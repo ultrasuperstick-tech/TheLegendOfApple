@@ -14,8 +14,8 @@ public class Health : MonoBehaviour
     public float maxHp = 100f;
     public float hp = 100f;
     public float knockbackPower;
-    public float timer = 0;
-    public float timer2 = 0;
+    float timer = 0;
+    float timer2 = 0;
     public float invincibleTime = 3f;
     public float defenselessTime = 3f;
     bool layerCollision = false;
@@ -75,23 +75,13 @@ public class Health : MonoBehaviour
 
             KnockBack(WormPosX);
 
-<<<<<<< HEAD
-            GetDamage = null;
-
-            
-=======
             // 레이어 충돌 해제
             layerCollision = true;
 
             Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
->>>>>>> 6db0fa5461edd7c446c8d1cc2bb4664fb564b2f4
         }
     }
 
-    void BeInvincible()
-    {
-
-    }
     void GetDamage(float damage)
     {
         hp = hp - damage;

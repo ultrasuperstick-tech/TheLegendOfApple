@@ -6982,8 +6982,6 @@ MonoBehaviour:
   maxHp: 100
   hp: 100
   knockbackPower: 7
-  timer: 0
-  timer2: 0
   invincibleTime: 3
   defenselessTime: 1
 --- !u!114 &1264498387
@@ -7001,7 +6999,7 @@ MonoBehaviour:
   appleVisual: {fileID: 1264498382}
   movePower: 100
   maxMoveSpeed: 2
-  jumpPower: 300
+  jumpPower: 500
   rollingSpeed: 200
 --- !u!60 &1264498388
 PolygonCollider2D:
