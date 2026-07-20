@@ -9,6 +9,7 @@ public class AppleController : MonoBehaviour
     public float movePower = 20f;
     public float maxMoveSpeed = 1f;
     public float jumpPower = 300f;
+    bool canMove = true;
 
     // 숫자가 작을수록 사과 그림이 천천히 회전함
     public float rollingSpeed = 300f;
@@ -23,15 +24,16 @@ public class AppleController : MonoBehaviour
         // 실제 오브젝트는 회전하지 않게 고정
         rBody.freezeRotation = true;
     }
-
     private void FixedUpdate()
     {
+        if (canMove == true)
+        {
+            AppleMove();
 
-        AppleMove();
+            MaxMoveSpeed();
 
-        MaxMoveSpeed();
-
-        AppleSpin();
+            AppleSpin();
+        }
     }
 
     void AppleMove()
@@ -57,7 +59,7 @@ public class AppleController : MonoBehaviour
         // 좌우로 이동
         rBody.AddForce(Vector2.right * moveInput * movePower);
 
-        
+
     }
 
     void AppleSpin()
@@ -82,5 +84,15 @@ public class AppleController : MonoBehaviour
         {
             rBody.linearVelocity = new Vector2(-maxMoveSpeed, rBody.linearVelocity.y);
         }
+    }
+
+    public void SetMove(bool canMove)
+    {
+        this.canMove = canMove;
+    }
+
+    public bool GetMove()
+    {
+        return canMove;
     }
 }

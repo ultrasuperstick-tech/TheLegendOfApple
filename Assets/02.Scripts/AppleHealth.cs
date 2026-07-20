@@ -1,9 +1,10 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 //이 클래스는 HpBar를 조절하는 역할을 가지고 있습니다.
-public class Health : MonoBehaviour
+public class AppleHealth : MonoBehaviour
 {
     Rigidbody2D rBody;
     AppleController appleController;
@@ -14,11 +15,12 @@ public class Health : MonoBehaviour
     public float maxHp = 100f;
     public float hp = 100f;
     public float knockbackPower;
-    float timer = 0;
-    float timer2 = 0;
+    float invincibleTimer = 0;
+    float defenselessTimer = 0;
     public float invincibleTime = 3f;
     public float defenselessTime = 3f;
     bool layerCollision = false;
+
 
     private void Awake()
     {
@@ -42,25 +44,26 @@ public class Health : MonoBehaviour
 
         if (layerCollision == true)
         {
-            timer += Time.deltaTime;
+            invincibleTimer += Time.deltaTime;
         }
 
-        if (layerCollision == true && timer > invincibleTime)
+        if (layerCollision == true && invincibleTimer > invincibleTime)
         {
             layerCollision = false;
             Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
-            timer = 0;
+            invincibleTimer = 0;
         }
 
-        if (appleController.enabled == false)
+        // 움직일 수 없는 시간부터 타이머 시작.
+        if (appleController.GetMove() == false)
         {
-            timer2 += Time.deltaTime;
+            defenselessTimer += Time.deltaTime;
         }
 
-        if (appleController.enabled == false && timer2 > defenselessTime)
+        if (appleController.GetMove() == false && defenselessTimer > defenselessTime)
         {
-            appleController.enabled = true;
-            timer2 = 0;
+            appleController.SetMove(true);
+            defenselessTimer = 0;
         }
     }
 
@@ -107,8 +110,6 @@ public class Health : MonoBehaviour
 
         rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
 
-        appleController.enabled = false;
-
-        
+        appleController.SetMove(false);
     }
 }
