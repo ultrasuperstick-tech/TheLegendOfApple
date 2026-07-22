@@ -28,6 +28,17 @@ public class AppleController : MonoBehaviour
     {
         if (canMove == true)
         {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                movePower = 10;
+                maxMoveSpeed = 1;
+            }
+            else
+            {
+                movePower = 100;
+                maxMoveSpeed = 2;
+            }
+
             AppleMove();
 
             MaxMoveSpeed();
