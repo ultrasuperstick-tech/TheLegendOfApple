@@ -9,7 +9,8 @@ public class BulletGenerator : MonoBehaviour
     public GameObject Arrow;
     public GameObject bulletColdown;
     TMP_Text cooldown_Text;
-    float bulletTimer;
+    float bulletTimer = 0;
+    public float bulletReady = 5;
 
     private void Start()
     {
@@ -20,16 +21,16 @@ public class BulletGenerator : MonoBehaviour
     {
         bulletTimer += Time.deltaTime;
 
-        if (bulletTimer >= 5)
+        if (bulletTimer >= bulletReady)
         {
             cooldown_Text.text = "READY!";
         }
         else
         {
-            cooldown_Text.text = Mathf.RoundToInt(5f - bulletTimer) + " Left";
+            cooldown_Text.text = Mathf.RoundToInt(bulletReady - bulletTimer) + " Left";
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.E))
         {
             Arrow.SetActive(true);
         }
@@ -38,7 +39,7 @@ public class BulletGenerator : MonoBehaviour
             Arrow.SetActive(false);
         }
                 
-        if (Input.GetMouseButtonUp(0) && bulletTimer > 5)
+        if ((Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.E)) && bulletTimer > bulletReady)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, transform.rotation);
 
