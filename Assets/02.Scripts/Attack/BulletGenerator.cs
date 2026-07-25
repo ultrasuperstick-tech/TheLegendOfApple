@@ -30,7 +30,7 @@ public class BulletGenerator : MonoBehaviour
             cooldown_Text.text = Mathf.RoundToInt(bulletReady - bulletTimer) + " Left";
         }
 
-        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.E))
+        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.F))
         {
             Arrow.SetActive(true);
         }
@@ -39,7 +39,7 @@ public class BulletGenerator : MonoBehaviour
             Arrow.SetActive(false);
         }
                 
-        if ((Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.E)) && bulletTimer > bulletReady)
+        if ((Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.F)) && bulletTimer > bulletReady)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, transform.rotation);
 

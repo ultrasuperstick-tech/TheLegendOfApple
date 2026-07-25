@@ -4,7 +4,6 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
     GameObject apple;
-    Rigidbody2D rBody;
     Rigidbody2D appleRBody;
     public float smallCameraSize = 1;
     public float normalCameraSize = 4;
@@ -16,7 +15,6 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        rBody = GetComponent<Rigidbody2D>();
         apple = GameObject.Find("Apple");
         appleRBody = apple.GetComponent<Rigidbody2D>();
     }

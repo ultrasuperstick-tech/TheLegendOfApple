@@ -3,7 +3,6 @@ using UnityEngine;
 public class WormController : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rBody;
     public GameObject wP_L;
     public GameObject wP_R;
     public float wormSpeed = 1f;
@@ -12,7 +11,6 @@ public class WormController : MonoBehaviour
 
     private void Start()
     {
-        rBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
