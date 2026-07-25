@@ -3,7 +3,6 @@ using UnityEngine;
 public class ArmorWormController : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rBody;
     public GameObject wP_L;
     public GameObject wP_R;
     public float wormSpeed = 1f;
@@ -14,11 +13,11 @@ public class ArmorWormController : MonoBehaviour
     float applePositionX;
     float wormPosX;
     int wormDir = 1;
+    bool appleFindFlag = false;
 
 
     private void Awake()
     {
-        rBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         apple = GameObject.Find("Apple");
     }
@@ -36,40 +35,45 @@ public class ArmorWormController : MonoBehaviour
 
         float distance = Mathf.Abs(wormPosX - applePositionX);
 
-        Debug.Log(distance);
-
-        if (distance < senseDist)
+        if (distance < senseDist && appleFindFlag == false)
         {
+            appleFindFlag = true;
+
             wormSpeed = rushSpeed;
+
+            if (wormPosX < applePositionX)
+            {
+                wormDir = 1;
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                wormDir = -1;
+                spriteRenderer.flipX = false;
+            }
         }
-        else
+        else if (appleFindFlag == false)
         {
             wormSpeed = originalWormSpeed;
         }
 
         this.transform.position += Vector3.right * wormDir * wormSpeed * Time.deltaTime;
 
+        // 웨이포인트 끝에 가면 방향 반대로
         if (wormPosX < wP_L.transform.position.x)
         {
             wormDir = 1;
             spriteRenderer.flipX = true;
+            appleFindFlag = false;
         }
 
         if (wormPosX > wP_R.transform.position.x)
         {
             wormDir = -1;
             spriteRenderer.flipX = false;
+            appleFindFlag = false;
         }
-        if (wormPosX < applePositionX)
-        {
-            wormDir = 1;
-            spriteRenderer.flipX = true;
-        }
-        if (wormPosX > applePositionX)
-        {
-            wormDir = -1;
-            spriteRenderer.flipX = false;
-        }
+        
     }
 }
         
