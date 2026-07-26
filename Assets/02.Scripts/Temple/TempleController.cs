@@ -5,35 +5,28 @@ using UnityEngine.SceneManagement;
 public class TempleController : MonoBehaviour
 {
     GameObject apple;
-    GameObject button;
     Rigidbody2D rBody;
+    float applePosX;
 
     private void Awake()
     {
         apple = GameObject.Find("Apple");
-        button = GameObject.Find("Button"); 
         rBody = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        rBody.linearVelocity = Vector2.zero;
-        rBody.angularVelocity = 0f;
-        rBody.constraints = RigidbodyConstraints2D.FreezeAll;
-        button.SetActive(false);
+
     }
 
     private void Update()
     {
+        applePosX = apple.transform.position.x;
 
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.CompareTag("Player"))
+        if (Input.GetKey(KeyCode.E) && Mathf.Abs(transform.position.x) - Mathf.Abs(applePosX) < Mathf.Abs(2))
         {
-            Debug.Log("OK");
-            SceneManager.LoadScene("Temple");    
+            SceneManager.LoadScene("Temple");
         }
     }
+
 }

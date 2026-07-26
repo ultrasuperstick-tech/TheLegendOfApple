@@ -16,6 +16,7 @@ public class AppleController : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (rBody == null)
         {
             rBody = GetComponent<Rigidbody2D>();

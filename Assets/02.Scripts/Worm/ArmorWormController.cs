@@ -10,7 +10,7 @@ public class ArmorWormController : MonoBehaviour
     public float rushSpeed = 20;
     public float senseDist = 6;
     GameObject apple;
-    float applePositionX;
+    float applePosX;
     float wormPosX;
     int wormDir = 1;
     bool appleFindFlag = false;
@@ -30,31 +30,30 @@ public class ArmorWormController : MonoBehaviour
 
     private void Update()
     {
-        applePositionX = apple.transform.position.x;
+        applePosX = apple.transform.position.x;
         wormPosX = gameObject.transform.position.x;
 
-        float distance = Mathf.Abs(wormPosX - applePositionX);
+        float distance = Mathf.Abs(wormPosX - applePosX);
 
-        if (distance < senseDist && appleFindFlag == false)
+        if (wP_L.transform.position.x < applePosX && wP_R.transform.transform.position.x > applePosX)
         {
-            appleFindFlag = true;
-
-            wormSpeed = rushSpeed;
-
-            if (wormPosX < applePositionX)
+            if (distance < senseDist && appleFindFlag == false)
             {
-                wormDir = 1;
-                spriteRenderer.flipX = true;
+                appleFindFlag = true;
+
+                wormSpeed = rushSpeed;
+
+                if (wormPosX < applePosX)
+                {
+                    wormDir = 1;
+                    spriteRenderer.flipX = true;
+                }
+                else
+                {
+                    wormDir = -1;
+                    spriteRenderer.flipX = false;
+                }
             }
-            else
-            {
-                wormDir = -1;
-                spriteRenderer.flipX = false;
-            }
-        }
-        else if (appleFindFlag == false)
-        {
-            wormSpeed = originalWormSpeed;
         }
 
         this.transform.position += Vector3.right * wormDir * wormSpeed * Time.deltaTime;
@@ -65,6 +64,7 @@ public class ArmorWormController : MonoBehaviour
             wormDir = 1;
             spriteRenderer.flipX = true;
             appleFindFlag = false;
+            wormSpeed = originalWormSpeed;
         }
 
         if (wormPosX > wP_R.transform.position.x)
@@ -72,6 +72,7 @@ public class ArmorWormController : MonoBehaviour
             wormDir = -1;
             spriteRenderer.flipX = false;
             appleFindFlag = false;
+            wormSpeed = originalWormSpeed;
         }
         
     }
