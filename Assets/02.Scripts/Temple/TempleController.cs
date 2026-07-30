@@ -25,7 +25,7 @@ public class TempleController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E) && Mathf.Abs(transform.position.x) - Mathf.Abs(applePosX) < Mathf.Abs(2))
         {
-            SceneManager.LoadScene("Temple");
+            SceneManager.LoadScene("Temple"); 
         }
     }
 

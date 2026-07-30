@@ -35,8 +35,10 @@ public class ArmorWormController : MonoBehaviour
 
         float distance = Mathf.Abs(wormPosX - applePosX);
 
+        // 사과와 에벌레의 거리가 사정거리 안이라면
         if (wP_L.transform.position.x < applePosX && wP_R.transform.transform.position.x > applePosX)
         {
+            // 에벌레가 웨이포인트에 닿을때까지 러쉬 스피드로 돌진함 .
             if (distance < senseDist && appleFindFlag == false)
             {
                 appleFindFlag = true;

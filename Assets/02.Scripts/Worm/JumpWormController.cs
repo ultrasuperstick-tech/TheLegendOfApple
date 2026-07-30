@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class JumpWormController : MonoBehaviour
 {
+
     SpriteRenderer spriteRenderer;
     Rigidbody2D rBody;
     Vector2 spawnPos;

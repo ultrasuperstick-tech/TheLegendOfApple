@@ -80,8 +80,10 @@ public class AppleHealth : MonoBehaviour
             WormDamage wormDamage = collision.gameObject.GetComponent<WormDamage>();
             float WormPosX = collision.gameObject.transform.position.x;
 
+            // 데미지 입음.
             GetDamage(wormDamage.damage);
 
+            // 넉백 당함.
             KnockBack(WormPosX);
 
             // 레이어 충돌 해제
@@ -92,6 +94,7 @@ public class AppleHealth : MonoBehaviour
 
     void GetDamage(float damage)
     {
+        // hp바에서 데미지 만큼 빼 보여줌.
         hp = hp - damage;
 
         hpBar.fillAmount = hp / maxHp;
@@ -102,6 +105,7 @@ public class AppleHealth : MonoBehaviour
     {
         float knockbackDir = 1f;
 
+        // 맞은 방향에 따라서 넉백당하는 방향을 정함,
         if (wormPosX < this.gameObject.transform.position.x)
         {
             knockbackDir = 1;
@@ -111,10 +115,12 @@ public class AppleHealth : MonoBehaviour
             knockbackDir = -1;
         }
 
+        // 넉백 당함.
         Vector2 knockbackDirection = new Vector2(knockbackDir, 1f);
 
         rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
 
+        // 사과의 움직임을 멈춤.
         appleController.SetMove(false);
     }
 }

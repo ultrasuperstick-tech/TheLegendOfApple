@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 1fcfcd2ca25fc934cbbab61a307a6b3e
+guid: 79253abe17cfc18418ea967c2fbae0ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8837561168673881857
-    second: Dirt_Corner_Left_Single_Tile_128x128_RGBA 3_0
+      213: 8399011212269539787
+    second: Stone_0
+  - first:
+      213: -6471164996032937220
+    second: Stone_1
+  - first:
+      213: -2685253163611956912
+    second: Stone_2
+  - first:
+      213: -2657622170025962153
+    second: Stone_3
+  - first:
+      213: 1779410674617963968
+    second: Stone_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt_Corner_Left_Single_Tile_128x128_RGBA 3_0
+      name: Stone_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 75
+        y: 258
+        width: 92
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff04864c0fcaa5580800000000000000
-      internalID: -8837561168673881857
+      spriteID: bc159db92384f8470800000000000000
+      internalID: 8399011212269539787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 257
+        width: 132
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf2c388c8bdc136a0800000000000000
+      internalID: -6471164996032937220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 257
+        width: 105
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0595aea89701cbad0800000000000000
+      internalID: -2685253163611956912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 75
+        width: 200
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 755566097ba3e1bd0800000000000000
+      internalID: -2657622170025962153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone_4
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 75
+        width: 159
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c55422b49cb1b810800000000000000
+      internalID: 1779410674617963968
       vertices: []
       indices: 
       edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dirt_Corner_Left_Single_Tile_128x128_RGBA 3_0: -8837561168673881857
+      Stone_0: 8399011212269539787
+      Stone_1: -6471164996032937220
+      Stone_2: -2685253163611956912
+      Stone_3: -2657622170025962153
+      Stone_4: 1779410674617963968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

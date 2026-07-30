@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 26211589e5a91e04595a064545c5c89d
+guid: 965eeffa1354c1740bd78b887b5a1270
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4750101584093752214
-    second: Dirt_Side_Single_Tile_128x128_RGBA 1_0
+      213: -1082587449559765748
+    second: Rotten_Log_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt_Side_Single_Tile_128x128_RGBA 1_0
+      name: Rotten_Log_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 11
         y: 0
-        width: 99
-        height: 128
+        width: 1494
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a645211c6cf341eb0800000000000000
-      internalID: -4750101584093752214
+      spriteID: c0da1be4370e9f0f0800000000000000
+      internalID: -1082587449559765748
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dirt_Side_Single_Tile_128x128_RGBA 1_0: -4750101584093752214
+      Rotten_Log_0: -1082587449559765748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
