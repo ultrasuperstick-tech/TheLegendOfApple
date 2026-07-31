@@ -40,6 +40,7 @@ public class JumpWormController : MonoBehaviour
         float distance = Mathf.Abs(wormPosX - applePosX);
         // 스폰된 위치로 부터 현재거리.
         float fromHomeDist = Mathf.Abs(spawnPos.x - wormPosX);
+        // 일정거리 멀어지면 처음위치로 돌아감.
         if (fromHomeDist > returnDist)
         {
             goHome = true;
@@ -47,6 +48,7 @@ public class JumpWormController : MonoBehaviour
             wormDir = -wormDir;
             wormSpeed = 10f;
         }
+        // 집에 거의 다 도착하면 다시 작동.
         else if (fromHomeDist < 1)
         {
             goHome = false;
@@ -55,11 +57,13 @@ public class JumpWormController : MonoBehaviour
 
         if (distance < senseDist && goHome == false)
         {
+            // 플래이어가 점프할때 이 애벌래도 같이 점프함.
             if (Input.GetKeyDown(KeyCode.Space) && rBody.linearVelocityY == 0)
             {
                 rBody.AddForce(Vector2.up * wormJumpPower);
             }
 
+            // 방향과 바라보는 방향 조정.
             if (wormPosX < applePosX)
             {
                 wormDir = 1;
@@ -75,6 +79,7 @@ public class JumpWormController : MonoBehaviour
         Move();
     }
 
+    // 움직임 관리.
     void Move()
     {
         this.transform.position += Vector3.right * wormDir * wormSpeed * Time.deltaTime;

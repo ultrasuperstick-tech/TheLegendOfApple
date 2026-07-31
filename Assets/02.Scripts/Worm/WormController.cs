@@ -20,13 +20,14 @@ public class WormController : MonoBehaviour
         // 이번 프레임에 이동할 거리 = 방향 * 속도 * 시간보정.
         this.transform.position += Vector3.right * wormDir * wormSpeed * Time.deltaTime;
 
-        if (this.transform.position.x < wP_L.transform.position.x)
+        // 웨이 포인트에 닿으면 방향 회전 이동방향 변경.
+        if (this.transform.position.x <= wP_L.transform.position.x)
         {
             wormDir = 1;
             spriteRenderer.flipX = true;
         }
 
-        if (this.transform.position.x > wP_R.transform.position.x)
+        if (this.transform.position.x >= wP_R.transform.position.x)
         {
             wormDir = -1;
             spriteRenderer.flipX = false;

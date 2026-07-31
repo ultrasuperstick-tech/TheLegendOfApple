@@ -1,4 +1,3 @@
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,16 +12,11 @@ public class TempleController : MonoBehaviour
         apple = GameObject.Find("Apple");
         rBody = GetComponent<Rigidbody2D>();
     }
-
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         applePosX = apple.transform.position.x;
 
+        // 신전 거리와 플레이어 거리 차이가 2 미만이면 E를 눌러 입장가능.
         if (Input.GetKey(KeyCode.E) && Mathf.Abs(transform.position.x) - Mathf.Abs(applePosX) < Mathf.Abs(2))
         {
             SceneManager.LoadScene("Temple"); 

@@ -15,7 +15,6 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         apple = GameObject.Find("Apple");
         appleRBody = apple.GetComponent<Rigidbody2D>();
     }
@@ -32,19 +31,24 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
+        // 카메라가 사과를 따라다님.
         Vector3 pos = target.position;
         pos.z = -10;
 
         transform.position = pos;
 
-        if (!Input.GetMouseButton(0) && appleRBody.linearVelocity.x == 0 && appleRBody.linearVelocity.y == 0 && cameraTimer > maxCameraTime)
-        {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, smallCameraSize, Time.deltaTime * cameraSpeed);
-        }
-        else if (Input.GetMouseButton(0) || appleRBody.linearVelocity.x != 0 || appleRBody.linearVelocity.y != 0)
+        // 아무 행동도 하지않고 일정시간이 지나면 카메라가 서서히 확대됌.
+        if (Input.GetMouseButton(0) || appleRBody.linearVelocity.x != 0 || appleRBody.linearVelocity.y != 0)
         {
             Camera.main.orthographicSize = normalCameraSize;
             cameraTimer = 0;
+        }
+        else
+        {
+            if (cameraTimer > maxCameraTime)
+            {
+                Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, smallCameraSize, Time.deltaTime * cameraSpeed);
+            }
         }
     }
 }
