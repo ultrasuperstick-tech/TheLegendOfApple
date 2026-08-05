@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
     {
         apple = GameObject.Find("Apple");
         appleRBody = apple.GetComponent<Rigidbody2D>();
+        DontDestroyOnLoad(this);
     }
 
     private void Start()

@@ -25,6 +25,7 @@ public class AppleController : MonoBehaviour
 
         // 실제 오브젝트는 회전하지 않게 고정
         rBody.freezeRotation = true;
+        DontDestroyOnLoad(this);
     }
 
     // 1초에 60번만 작동함 움직임을 관리할때는 이게 나아서 이렇게 함.

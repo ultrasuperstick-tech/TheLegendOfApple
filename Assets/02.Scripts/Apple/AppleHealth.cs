@@ -13,8 +13,8 @@ public class AppleHealth : MonoBehaviour
     Animator animator;
     GameObject hpBarObject;
     GameObject hpTextObject;
-    public float maxHp = 100f;
     public float hp = 100f;
+    public float maxHp = 100f;
     public float knockbackPower;
     float invincibleTimer = 0;
     float defenselessTimer = 0;

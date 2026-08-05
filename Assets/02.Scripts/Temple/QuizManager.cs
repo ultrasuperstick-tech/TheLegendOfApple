@@ -1,7 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [Serializable]
@@ -15,7 +15,8 @@ public class Quiz
 public class QuizManager : MonoBehaviour
 {
     public Transform statueTr; // 석상 트렌스폼.
-    public Transform appleTr; // 사과 트렌스폼.
+    Transform appleTr; // 사과 트렌스폼.
+    Transform exitPos;
     public float interactionDist;
 
     // public List<Quiz> quizList = new List<Quiz>();
@@ -32,6 +33,10 @@ public class QuizManager : MonoBehaviour
     public Button selectA_Btn;
     public Button selectB_Btn;
 
+    private void Awake()
+    {
+        appleTr = GameObject.Find("Apple").transform;
+    }
 
     private void Start()
     {
@@ -87,9 +92,12 @@ public class QuizManager : MonoBehaviour
     {
         // 정답을 판별하는 함수
         // Quiz quiz = quizList[curQuizIndex];
+        exitPos = GameObject.Find("ExitSpawnPos").transform;
+
         if (quiz.answer == answer)
         {
             Debug.Log("정답입니다.");
+
         }
         else
         {
@@ -97,10 +105,11 @@ public class QuizManager : MonoBehaviour
         }
 
         QuizEnd();
+        appleTr.position = exitPos.position;
     }
 
     void QuizEnd()
     {
-        quizPanel.SetActive (false);    
+        quizPanel.SetActive(false);
     }
 }
