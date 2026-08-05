@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5887583115908512827}
   - component: {fileID: 627637875665142918}
   - component: {fileID: 7238791645451670455}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: JumpWormGorup
   m_TagString: Bug
   m_Icon: {fileID: 0}

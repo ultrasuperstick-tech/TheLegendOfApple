@@ -42,6 +42,7 @@ public class AppleHealth : MonoBehaviour
 
     private void Update()
     {
+
         // 무적이면 무적시간 타이머 시작, 에니메이션 시작
         if (layerCollision == true)
         {
@@ -84,9 +85,21 @@ public class AppleHealth : MonoBehaviour
             GetDamage(wormDamage.damage);
 
             // 넉백 당함.
-            KnockBack(WormPosX);
+            WormKnockBack(WormPosX);
 
             // 레이어 충돌 해제
+            layerCollision = true;
+            Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
+        }
+
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            Spike spikeDamage = collision.gameObject.GetComponent<Spike>();
+
+            GetDamage(spikeDamage.spikeDamage);
+
+            SpikeKnockBack();
+
             layerCollision = true;
             Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
         }
@@ -101,7 +114,7 @@ public class AppleHealth : MonoBehaviour
         hpText.text = hpBar.fillAmount * 100 + "%";
     }
 
-    void KnockBack(float wormPosX)
+    void WormKnockBack(float wormPosX)
     {
         float knockbackDir = 1f;
 
@@ -114,6 +127,19 @@ public class AppleHealth : MonoBehaviour
         {
             knockbackDir = -1;
         }
+
+        // 넉백 당함.
+        Vector2 knockbackDirection = new Vector2(knockbackDir, 1f);
+
+        rBody.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
+
+        // 사과의 움직임을 멈춤.
+        appleController.SetMove(false);
+    }
+
+    void SpikeKnockBack()
+    {
+        float knockbackDir = -1f;
 
         // 넉백 당함.
         Vector2 knockbackDirection = new Vector2(knockbackDir, 1f);

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bug
   - Bullet
+  - Spike
   layers:
   - Default
   - TransparentFX
