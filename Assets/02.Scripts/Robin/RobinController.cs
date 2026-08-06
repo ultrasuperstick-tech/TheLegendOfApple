@@ -5,14 +5,24 @@ public class RobinController : MonoBehaviour
 {
     GameObject apple;
     GameObject robin;
+    public Transform applePos;
     Transform appleTr;
     Transform robinTr;
     float interactionDist = 2f;
+    float flyTimer = 0;
+    float passTime = 5;
+    public float robinSpeed = 1;
+    bool canFly;
 
     private void Awake()
     {
         apple = GameObject.Find("Apple");
         robin = GameObject.Find("Robin");
+    }
+
+    private void Start()
+    {
+        canFly = false;
     }
 
     private void Update()
@@ -26,8 +36,22 @@ public class RobinController : MonoBehaviour
 
             if (isClosed == true)
             {
-                SceneSwitch();
+                TakeApple();
+                canFly = true;
             }
+        }
+
+        if (canFly == true)
+        {
+            this.transform.position += Vector3.right * robinSpeed * Time.deltaTime;
+            flyTimer += Time.deltaTime;
+        }
+
+        if (flyTimer >= passTime)
+        {
+            SceneSwitch();
+            appleTr.position = Vector3.zero;
+            apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
     }
 
@@ -48,5 +72,12 @@ public class RobinController : MonoBehaviour
         }
 
         return isClosed;
+    }
+
+    void TakeApple()
+    {
+        apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        appleTr.parent = applePos;
+        appleTr.localPosition = Vector3.zero;
     }
 }

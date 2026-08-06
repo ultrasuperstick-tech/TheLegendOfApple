@@ -239,7 +239,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 2
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 57a946bb29ea4b74aadbe842fce2fd13, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -279,8 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b6c78820b13ab4291fd50547ac6207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 100
   hp: 100
+  maxHp: 100
   knockbackPower: 7
   invincibleTime: 3
   defenselessTime: 1
