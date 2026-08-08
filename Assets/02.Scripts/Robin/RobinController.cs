@@ -45,6 +45,7 @@ public class RobinController : MonoBehaviour
         {
             this.transform.position += Vector3.right * robinSpeed * Time.deltaTime;
             flyTimer += Time.deltaTime;
+            appleTr.position = applePos.position;
         }
 
         if (flyTimer >= passTime)
@@ -77,7 +78,6 @@ public class RobinController : MonoBehaviour
     void TakeApple()
     {
         apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        appleTr.parent = applePos;
         appleTr.localPosition = Vector3.zero;
     }
 }
