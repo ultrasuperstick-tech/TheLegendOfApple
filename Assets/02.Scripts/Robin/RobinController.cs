@@ -12,12 +12,13 @@ public class RobinController : MonoBehaviour
     float flyTimer = 0;
     float passTime = 5;
     public float robinSpeed = 1;
-    bool canFly;
+    public bool canFly;
 
     private void Awake()
     {
         apple = GameObject.Find("Apple");
         robin = GameObject.Find("Robin");
+        DontDestroyOnLoad(robin);
     }
 
     private void Start()
@@ -50,9 +51,10 @@ public class RobinController : MonoBehaviour
 
         if (flyTimer >= passTime)
         {
-            SceneSwitch();
+            canFly = false;
             appleTr.position = Vector3.zero;
-            apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            SceneSwitch();
         }
     }
 
