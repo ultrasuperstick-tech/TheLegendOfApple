@@ -96,7 +96,6 @@ public class AppleController : MonoBehaviour
         if (appleVisual != null)
         {
             float rotateAmount = -rBody.linearVelocity.x * rollingSpeed * Time.fixedDeltaTime;
-
             appleVisual.Rotate(0f, 0f, rotateAmount);
         }
     }
