@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class SurpassWorm : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   float surpassHeight = 1.0f;
+   float wormPos;
+   Rigidbody2D rBody;
+
+    private void Awake()
     {
-        
+        rBody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        wormPos = this.transform.position.y;
+
+        if (this.rBody.linearVelocityX <= 1)
+        {
+            wormPos += 1;
+        }
     }
 }
