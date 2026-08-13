@@ -8,6 +8,7 @@ public class RobinController : MonoBehaviour
     public Transform applePos;
     Transform appleTr;
     Transform robinTr;
+    Animator animator;
     float interactionDist = 2f;
     float flyTimer = 0;
     float passTime = 5;
@@ -18,7 +19,8 @@ public class RobinController : MonoBehaviour
     {
         apple = GameObject.Find("Apple");
         robin = GameObject.Find("Robin");
-        DontDestroyOnLoad(robin);
+        animator = GetComponent<Animator>();
+
     }
 
     private void Start()
@@ -39,6 +41,8 @@ public class RobinController : MonoBehaviour
             {
                 TakeApple();
                 canFly = true;
+                GameObject.Find("FadeOut").GetComponent<FadeOut>().StartFade();
+                animator.SetBool("IsFly", true);
             }
         }
 

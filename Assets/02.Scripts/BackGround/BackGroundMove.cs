@@ -3,23 +3,33 @@ using UnityEngine;
 public class BackGroundMove : MonoBehaviour
 {
     [SerializeField]
-    private Transform target;   // 현제 배경과 이어지는 배경.
-    [SerializeField]
-    private float scrollAmount; // 이어지는 두배경 사이의 거리.
-    [SerializeField]
-    private float moveSpeed;    // 이동 속도.
-    [SerializeField]
-    private Vector3 moveDirection;  // 이동 방향.
+    private Transform cameraTransform;
 
-    private void Update()
+    private Vector3 cameraStartPosition;
+    private float distance;
+
+    private Material[] materials;
+    private float[] layerMoveSpeed;
+
+    [SerializeField][Range(0.01f, 1.0f)]
+    private float[] parallaxSpeed;
+
+    private void Awake()
     {
-        // 배경이 moveDirection 방향으로 moveSpeed의 속도로 이동.
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        cameraStartPosition = cameraTransform.position;
 
-        // 배경이 설정된 범위를 벗어나면 위치 재설정.
-        if (transform.position.x <= -scrollAmount)
+        int backgroundCount = transform.childCount;
+        GameObject[] background = new GameObject[backgroundCount];
+
+        materials = new Material[backgroundCount];
+        layerMoveSpeed = new float[backgroundCount];
+
+        for (int i = 0; i < backgroundCount; ++i)
         {
-            transform.position = target.position - moveDirection * scrollAmount;
+            background[i] = transform.GetChild(i).gameObject;
+            materials[i] = background[i].GetComponent<Renderer>().material;
         }
+
+        
     }
 }

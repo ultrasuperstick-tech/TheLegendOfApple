@@ -1,42 +1,35 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FadeOut : MonoBehaviour
 {
-    Color32 color;
-    RobinController robinController;
-    GameObject robin;
-    bool fadeOutStart;
+    Color color;
+    Image image;
     float alpha;
-    private void Awake()
-    {
-        robin = GameObject.Find("Robin");
-        color = this.gameObject.GetComponent<Image>().color;
-        robinController = robin.GetComponent<RobinController>();
-    }
 
     private void Start()
     {
+        image = this.gameObject.GetComponent<Image>();
         alpha = 0f;
-        color = new Color(0, 0, 0, alpha);
+    }
+    public void StartFade()
+    {
+        StartCoroutine(StartFadeOutCo());
     }
 
-    private void Update()
+    IEnumerator StartFadeOutCo()
     {
-        fadeOutStart = robinController.canFly;
+        // 2초 동안 기다리기.
+        yield return new WaitForSeconds(2.0f);
 
-        if (fadeOutStart == false)
+        while(color.a < 1.0f)
         {
-            alpha -= Time.fixedDeltaTime;
-            color = new Color(0, 0, 0, 1 + alpha);
-        }
+            alpha += Time.deltaTime;
+            color = new Color(0, 0, 0, alpha);
+            image.color = color;
 
-        if (fadeOutStart == true)
-        {
-            alpha += Time.fixedDeltaTime;
-            color = new Color(0, 0, 0, 0 + alpha);
+            yield return null;
         }
-        
-        this.gameObject.GetComponent<Image>().color = color;
     }
 }
