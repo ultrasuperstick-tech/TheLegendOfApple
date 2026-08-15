@@ -4,6 +4,7 @@ public class AppleController : MonoBehaviour
 {
 
     Rigidbody2D rBody;
+    AppleAudioManager audioManager;
     public Transform appleVisual;
 
     public float movePower = 20f;
@@ -22,6 +23,8 @@ public class AppleController : MonoBehaviour
         {
             rBody = GetComponent<Rigidbody2D>();
         }
+
+        audioManager = GetComponent<AppleAudioManager>();
 
         // 실제 오브젝트는 회전하지 않게 고정
         rBody.freezeRotation = true;
@@ -87,6 +90,7 @@ public class AppleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(this.rBody.linearVelocityY) <= 0.1f)
         {
             rBody.AddForce(Vector2.up * jumpPower);
+            audioManager.canLand = true;
         }
     }
 

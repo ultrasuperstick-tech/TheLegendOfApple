@@ -9,6 +9,8 @@ public class RobinController : MonoBehaviour
     Transform appleTr;
     Transform robinTr;
     Animator animator;
+    AudioSource audioSource;
+    public AudioClip flying;
     float interactionDist = 2f;
     float flyTimer = 0;
     float passTime = 5;
@@ -20,7 +22,7 @@ public class RobinController : MonoBehaviour
         apple = GameObject.Find("Apple");
         robin = GameObject.Find("Robin");
         animator = GetComponent<Animator>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -48,6 +50,7 @@ public class RobinController : MonoBehaviour
 
         if (canFly == true)
         {
+            audioSource.PlayOneShot(flying);
             this.transform.position += Vector3.right * robinSpeed * Time.deltaTime;
             flyTimer += Time.deltaTime;
             appleTr.position = applePos.position;
