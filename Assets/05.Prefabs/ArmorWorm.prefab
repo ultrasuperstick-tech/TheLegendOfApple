@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6103678129283034428}
   - component: {fileID: 4508218843392972121}
   - component: {fileID: 8834533260396811987}
+  - component: {fileID: 319713863314602533}
   m_Layer: 7
   m_Name: ArmorWorm_1
   m_TagString: Bug
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4991661074560982182, guid: 3142aab8a7e7fc24089695cb1bbf77dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -236,6 +237,22 @@ MonoBehaviour:
   originalWormSpeed: 1
   rushSpeed: 20
   senseDist: 6
+--- !u!114 &319713863314602533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767893973115010827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93292d4f8d61e8a4e87d57f8215b972e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurpassWorm
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  jumpPower: 0
 --- !u!1 &2467544840576878641
 GameObject:
   m_ObjectHideFlags: 0

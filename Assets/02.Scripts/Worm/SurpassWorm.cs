@@ -2,22 +2,38 @@ using UnityEngine;
 
 public class SurpassWorm : MonoBehaviour
 {
-   float surpassHeight = 1.0f;
-   float wormPos;
    Rigidbody2D rBody;
+    public LayerMask groundLayer;
+    SpriteRenderer spr;
+
+    public float jumpPower;
+    float distance = 1.0f;
 
     private void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        wormPos = this.transform.position.y;
+        Vector2 direction;
 
-        if (this.rBody.linearVelocityX <= 1)
+        if (spr.flipX == false)
         {
-            wormPos += 1;
+            direction = Vector2.left;
         }
+        else
+        {
+            direction = Vector2.right;
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, groundLayer);
+        if(hit.transform != null)
+        {
+            rBody.AddForce(Vector2.up * jumpPower);
+        }
+
+        Debug.DrawRay(transform.position, direction * distance, Color.red, 0.1f);
     }
 }

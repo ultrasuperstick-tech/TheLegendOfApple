@@ -29,7 +29,5 @@ public class BackGroundMove : MonoBehaviour
             background[i] = transform.GetChild(i).gameObject;
             materials[i] = background[i].GetComponent<Renderer>().material;
         }
-
-        
     }
 }

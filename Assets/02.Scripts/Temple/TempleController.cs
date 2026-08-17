@@ -17,6 +17,7 @@ public class TempleController : MonoBehaviour
     {
         appleTr = apple.transform;
     }
+
     private void Update()
     {
 

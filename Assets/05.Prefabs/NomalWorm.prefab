@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 4779219419586270077}
   - component: {fileID: 7959627598523673644}
   - component: {fileID: 6447800101588098350}
+  - component: {fileID: 4517530072976390537}
   m_Layer: 7
   m_Name: Worm_1
   m_TagString: Bug
@@ -116,7 +117,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2167404768631870374, guid: 2acb29a23731f184888aced24a2dbf70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -264,6 +265,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WormHealth
   maxWormHp: 100
+--- !u!114 &4517530072976390537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625999706126532310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93292d4f8d61e8a4e87d57f8215b972e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurpassWorm
 --- !u!1 &8722522545662278594
 GameObject:
   m_ObjectHideFlags: 0

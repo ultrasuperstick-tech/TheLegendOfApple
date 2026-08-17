@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5887583115908512827}
   - component: {fileID: 627637875665142918}
   - component: {fileID: 7238791645451670455}
+  - component: {fileID: 5543534006124916277}
   m_Layer: 7
   m_Name: JumpWormGorup
   m_TagString: Bug
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7602000596481848862, guid: a54d9de4847431945a4f33d5dd0cf9c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -212,3 +213,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5543534006124916277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903592346861143952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93292d4f8d61e8a4e87d57f8215b972e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurpassWorm
