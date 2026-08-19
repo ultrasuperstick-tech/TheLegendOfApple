@@ -45,12 +45,12 @@ public class RobinController : MonoBehaviour
                 canFly = true;
                 GameObject.Find("FadeOut").GetComponent<FadeOut>().StartFade();
                 animator.SetBool("IsFly", true);
+                audioSource.PlayOneShot(flying);
             }
         }
 
         if (canFly == true)
         {
-            audioSource.PlayOneShot(flying);
             this.transform.position += Vector3.right * robinSpeed * Time.deltaTime;
             flyTimer += Time.deltaTime;
             appleTr.position = applePos.position;
