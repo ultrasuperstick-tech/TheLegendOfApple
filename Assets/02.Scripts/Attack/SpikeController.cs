@@ -4,7 +4,7 @@ public class SpikeController : MonoBehaviour
 {
     public GameObject apple;
     Rigidbody2D rBody;
-    public float SpikeSpeed = 1.0f;
+    public float spikeSpeed = 1.0f;
 
     private void Awake()
     {
@@ -14,9 +14,9 @@ public class SpikeController : MonoBehaviour
 
     public void SetDirection(Vector2 direction)
     {
-        Vector3 applePos = apple.transform.position;
-
-        rBody.linearVelocity = direction.normalized * SpikeSpeed;
+        transform.forward = direction;
+        rBody.linearVelocity = direction.normalized * spikeSpeed;
+        Destroy(gameObject, 100f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

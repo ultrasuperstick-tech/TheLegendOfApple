@@ -12,6 +12,7 @@ public class FadeIn : MonoBehaviour
     {
         image = this.gameObject.GetComponent<Image>();
         alpha = 1f;
+        color = new Color(0, 0, 0, alpha);
         StartFade();
     }
 
