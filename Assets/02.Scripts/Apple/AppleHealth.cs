@@ -76,16 +76,16 @@ public class AppleHealth : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 에벌레랑 충돌했을때.
-        if (collision.gameObject.CompareTag("Bug"))
+        if ( collision.gameObject.CompareTag("Bug"))
         {
             WormDamage wormDamage = collision.gameObject.GetComponent<WormDamage>();
-            float WormPosX = collision.gameObject.transform.position.x;
+            float enemyPosX = collision.gameObject.transform.position.x;
 
             // 데미지 입음.
             GetDamage(wormDamage.damage);
 
             // 넉백 당함.
-            WormKnockBack(WormPosX);
+            EnemyKnockBack(enemyPosX);
 
             // 레이어 충돌 해제
             layerCollision = true;
@@ -98,7 +98,7 @@ public class AppleHealth : MonoBehaviour
 
             GetDamage(spikeDamage.spikeDamage);
 
-            SpikeKnockBack();
+            trapKnockBack();
 
             layerCollision = true;
             Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
@@ -114,12 +114,12 @@ public class AppleHealth : MonoBehaviour
         hpText.text = hpBar.fillAmount * 100 + "%";
     }
 
-    void WormKnockBack(float wormPosX)
+    void EnemyKnockBack(float enemyPosX)
     {
         float knockbackDir = 1f;
 
         // 맞은 방향에 따라서 넉백당하는 방향을 정함,
-        if (wormPosX < this.gameObject.transform.position.x)
+        if (enemyPosX < this.gameObject.transform.position.x)
         {
             knockbackDir = 1;
         }
@@ -137,7 +137,7 @@ public class AppleHealth : MonoBehaviour
         appleController.SetMove(false);
     }
 
-    void SpikeKnockBack()
+    void trapKnockBack()
     {
         float knockbackDir = -1f;
 

@@ -323,6 +323,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa93d46b334e0624b97186819c57b00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIController
+--- !u!1 &78273177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78273178}
+  m_Layer: 7
+  m_Name: WayPoint3_L
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78273178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78273177}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.8, y: -4.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1059220259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &91245472
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +444,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1534610971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &176045129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176045130}
+  m_Layer: 7
+  m_Name: WayPoint3_R
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &176045130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176045129}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.82, y: -3.93, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1059220259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &181938551
 GameObject:
@@ -1344,6 +1406,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 319713863314602533, guid: 920209d91fd3966469835ef90dfd5687, type: 3}
+      propertyPath: jumpPower
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2467544840576878641, guid: 920209d91fd3966469835ef90dfd5687, type: 3}
       propertyPath: m_Name
       value: ArmorWorm
@@ -4694,11 +4760,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4062371241864794862, guid: 4bcaa12c14cfdda41b75b978d6fb3bf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.02
+      value: 154.5
       objectReference: {fileID: 0}
     - target: {fileID: 4062371241864794862, guid: 4bcaa12c14cfdda41b75b978d6fb3bf8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.97
+      value: 13.28
       objectReference: {fileID: 0}
     - target: {fileID: 4062371241864794862, guid: 4bcaa12c14cfdda41b75b978d6fb3bf8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4827,6 +4893,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4062371241864794862, guid: 4bcaa12c14cfdda41b75b978d6fb3bf8, type: 3}
   m_PrefabInstance: {fileID: 990984730}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1059220258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059220259}
+  m_Layer: 0
+  m_Name: SpikeWormGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1059220259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059220258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 123.75, y: 8.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 78273178}
+  - {fileID: 176045130}
+  - {fileID: 1503377443}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095546269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4836,7 +4936,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095546270}
-  - component: {fileID: 1095546271}
   m_Layer: 0
   m_Name: SpikeFirePoint
   m_TagString: Untagged
@@ -4859,24 +4958,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1503377443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1095546271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095546269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0fbd6eb1e03f14eb9c8faf979c637f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpikeGenerator
-  apple: {fileID: 512466615}
-  firePoint: {fileID: 1095546269}
-  spikePrefab: {fileID: 7764396935600694086, guid: 62a3c066195c5e74d91db458da620287, type: 3}
-  senseDist: 5
-  spikeTimer: 0
-  spikecooltime: 3
 --- !u!1 &1127523982
 GameObject:
   m_ObjectHideFlags: 0
@@ -5436,7 +5517,11 @@ GameObject:
   - component: {fileID: 1503377443}
   - component: {fileID: 1503377442}
   - component: {fileID: 1503377441}
-  m_Layer: 0
+  - component: {fileID: 1503377444}
+  - component: {fileID: 1503377446}
+  - component: {fileID: 1503377445}
+  - component: {fileID: 1503377447}
+  m_Layer: 10
   m_Name: SpikeWorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5455,7 +5540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20edf844237cb346a966514bc936c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikeWormController
-  apple: {fileID: 512466615}
+  wP_L: {fileID: 78273177}
+  wP_R: {fileID: 176045129}
+  wormSpeed: 3
 --- !u!212 &1503377442
 SpriteRenderer:
   serializedVersion: 2
@@ -5503,11 +5590,11 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 18
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -5523,14 +5610,122 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503377440}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.497, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.89, y: -4.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1095546270}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1059220259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1503377444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503377440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0fbd6eb1e03f14eb9c8faf979c637f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpikeGenerator
+  apple: {fileID: 512466615}
+  firePoint: {fileID: 1095546269}
+  spikePrefab: {fileID: 7764396935600694086, guid: 62a3c066195c5e74d91db458da620287, type: 3}
+  senseDist: 10
+  spikeTimer: 0
+  spikecooltime: 3
+--- !u!61 &1503377445
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503377440}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &1503377446
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503377440}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 5
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1503377447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503377440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93292d4f8d61e8a4e87d57f8215b972e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurpassWorm
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  jumpPower: 200
+  distance: 1.5
 --- !u!1 &1505542613
 GameObject:
   m_ObjectHideFlags: 0
@@ -21710,4 +21905,4 @@ SceneRoots:
   - {fileID: 350179897}
   - {fileID: 1534610971}
   - {fileID: 330725844}
-  - {fileID: 1503377443}
+  - {fileID: 1059220259}

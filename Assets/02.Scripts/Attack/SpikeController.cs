@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class SpikeController : MonoBehaviour
 {
-    public GameObject apple;
+    public GameObject spikeEffect;
+    GameObject apple;
     Rigidbody2D rBody;
     public float spikeSpeed = 1.0f;
+
 
     private void Awake()
     {
@@ -14,16 +16,14 @@ public class SpikeController : MonoBehaviour
 
     public void SetDirection(Vector2 direction)
     {
-        transform.forward = direction;
+        transform.up = direction;
         rBody.linearVelocity = direction.normalized * spikeSpeed;
-        Destroy(gameObject, 100f);
+        Destroy(gameObject, 5f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rBody.linearVelocity = Vector2.zero;
-        rBody.angularVelocity = 0f;
-        rBody.constraints = RigidbodyConstraints2D.FreezeAll;
-        Destroy(gameObject, 0.5f);
+        GameObject effect = Instantiate(spikeEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

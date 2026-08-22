@@ -7,7 +7,7 @@ public class SurpassWorm : MonoBehaviour
     SpriteRenderer spr;
 
     public float jumpPower;
-    float distance = 1.0f;
+    public float distance = 1.0f;
 
     private void Awake()
     {
@@ -31,9 +31,17 @@ public class SurpassWorm : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, groundLayer);
         if(hit.transform != null)
         {
-            rBody.AddForce(Vector2.up * jumpPower);
+            if (this.rBody.linearVelocityY < 0.1f)
+            {
+                Surpass();
+            }
         }
 
         Debug.DrawRay(transform.position, direction * distance, Color.red, 0.1f);
+    }
+
+    void Surpass()
+    {
+        rBody.AddForce(Vector2.up * jumpPower);
     }
 }

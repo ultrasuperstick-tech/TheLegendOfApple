@@ -2,23 +2,33 @@ using UnityEngine;
 
 public class SpikeWormController : MonoBehaviour
 {
-    public GameObject apple;
+    SpriteRenderer spriteRenderer;
+    public GameObject wP_L;
+    public GameObject wP_R;
+    public float wormSpeed = 1f;
+    int wormDir = 1;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
-        Vector3 applePos = apple.transform.position;
-        float applePosX = applePos.x;
-        float wormPosX = this.transform.position.x;
+        // 이번 프레임에 이동할 거리 = 방향 * 속도 * 시간보정.
+        this.transform.position += Vector3.right * wormDir * wormSpeed * Time.deltaTime;
 
-        float distance = Mathf.Abs(wormPosX - applePosX);
-
-        if ((applePosX - wormPosX) > 0)
+        // 웨이 포인트에 닿으면 방향 회전 이동방향 변경.
+        if (this.transform.position.x <= wP_L.transform.position.x)
         {
-            //왼쪽 보기.
+            wormDir = 1;
+            spriteRenderer.flipX = true;    
         }
-        else
+
+        if (this.transform.position.x >= wP_R.transform.position.x)
         {
-            //오른쪽 보기.
+            wormDir = -1;
+            spriteRenderer.flipX = false;
         }
     }
 }

@@ -5,7 +5,7 @@ public class SpikeGenerator : MonoBehaviour
     public GameObject apple;
     public GameObject firePoint;
     public GameObject spikePrefab;
-    public float senseDist = 5;
+    public float senseDist = 10;    
     public float spikeTimer = 0;
     public float spikecooltime = 3;
     bool canAttck;
