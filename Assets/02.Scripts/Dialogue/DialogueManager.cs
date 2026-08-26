@@ -8,7 +8,8 @@ public class DialogueManager : MonoBehaviour
     public Sprite playerSprite;
     public GameObject dialog;
     public bool canDailog;
-    int textIndex;
+    public bool isDailog;
+    int textIndex = 0;
 
     public string[] dialogs;
 
@@ -18,32 +19,32 @@ public class DialogueManager : MonoBehaviour
     {
         player.sprite = playerSprite;
         canDailog = false;
+        isDailog = true;
         textIndex = 0;
+        dialogText.text = dialogs[0];
     }
 
     private void Update()
     {
-        if (canDailog == false)
-        {
-            textIndex = 0;
-            dialog.SetActive(false);
-        }
-        else if (canDailog == true)
+        if (canDailog == true)
         {
             dialog.SetActive(true);
 
             if (Input.GetMouseButtonDown(0))
             {
                 textIndex += 1;
+
                 if (textIndex >= dialogs.Length)
                 {
                     dialog.SetActive(false);
+                    canDailog = false;
+                    isDailog = false;
+                    return;
                 }
-                else
-                {
-                    dialogText.text = dialogs[textIndex];
-                }
+
+                dialogText.text = dialogs[textIndex];
             }
+            
         }
     }
 }
