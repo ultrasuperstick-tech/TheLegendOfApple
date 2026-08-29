@@ -6,7 +6,7 @@ public class SurpassWorm : MonoBehaviour
     public LayerMask groundLayer;
     SpriteRenderer spr;
 
-    public float jumpPower;
+    public float jumpPower = 500;
     public float distance = 1.0f;
 
     private void Awake()
@@ -42,6 +42,6 @@ public class SurpassWorm : MonoBehaviour
 
     void Surpass()
     {
-        rBody.AddForce(Vector2.up * jumpPower);
+        rBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
 }
