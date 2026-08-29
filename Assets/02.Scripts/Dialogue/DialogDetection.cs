@@ -6,6 +6,9 @@ public class DialogDetection : MonoBehaviour
     public DialogueManager dialogueManager;
     public float interactionDist = 1.0f;
 
+    public Sprite dialogerImage;
+    public string[] dialoges;
+
     private void Start()
     {
         appleTr = GameObject.Find("Apple").transform;
@@ -24,6 +27,7 @@ public class DialogDetection : MonoBehaviour
                 if (isClosed == true)
                 {
                     dialogueManager.canDailog = true;
+                    dialogueManager.SetDialog(dialoges, dialogerImage);
                 }
             }
         }

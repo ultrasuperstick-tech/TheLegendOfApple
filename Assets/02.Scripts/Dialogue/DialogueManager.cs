@@ -6,6 +6,7 @@ public class DialogueManager : MonoBehaviour
 {
     public Image player;
     public Sprite playerSprite;
+    public Image otherImage;
     public GameObject dialog;
     public bool canDailog;
     public bool isDailog;
@@ -44,7 +45,12 @@ public class DialogueManager : MonoBehaviour
 
                 dialogText.text = dialogs[textIndex];
             }
-            
         }
+    }
+
+    public void SetDialog(string[] otherDialogs, Sprite dialogerImage)
+    {
+        dialogs = otherDialogs;
+        otherImage.sprite = dialogerImage;
     }
 }

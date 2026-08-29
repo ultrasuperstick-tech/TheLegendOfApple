@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class AppleController : MonoBehaviour
 {
-
+    AudioSource audioSource;
     Rigidbody2D rBody;
-    AppleAudioManager audioManager;
     public Transform appleVisual;
+    public AudioClip landingSound;
 
+    // 움직이는 속도 조정.
     public float movePower = 20f;
+    // 움직이는 속도 제한.
     public float maxMoveSpeed = 1f;
+    // 점프하는 힘 증가.
     public float jumpPower = 300f;
+    // 움직이는 방향.
     float moveInput = 0f;
+    // 움직일 수 있는지 없는지 가능 여부.
     bool canMove = true;
 
     // 숫자가 작을수록 사과 그림이 천천히 회전함
@@ -18,15 +23,11 @@ public class AppleController : MonoBehaviour
 
     private void Awake()
     {
-        // 리지드 바디가 비어있지 않으면 찾는다. (공부하려고 한번해봤음)
-        if (rBody == null)
-        {
-            rBody = GetComponent<Rigidbody2D>();
-        }
-
-        audioManager = GetComponent<AppleAudioManager>();
+        // 리지드바디 컴포넌트 캐싱.
+        rBody = GetComponent<Rigidbody2D>();
 
         // 실제 오브젝트는 회전하지 않게 고정
+        audioSource = GetComponent<AudioSource>();
         rBody.freezeRotation = true;
         DontDestroyOnLoad(gameObject);
     }
@@ -64,7 +65,6 @@ public class AppleController : MonoBehaviour
         // 플레이어의 점프를 담당함.
         AppleJump();
     }
-
     void AppleMove()
     {
         moveInput = 0f;
@@ -90,7 +90,6 @@ public class AppleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(this.rBody.linearVelocityY) <= 0.1f)
         {
             rBody.AddForce(Vector2.up * jumpPower);
-            audioManager.canLand = true;
         }
     }
 
