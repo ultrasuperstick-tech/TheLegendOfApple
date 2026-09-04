@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class AppleStart : MonoBehaviour
 {
-    
-    void Start()
+    GameObject apple;
+
+    private void Start()
     {
-        
+        apple = GameObject.Find("Apple");
+        Debug.Log(apple.name);
+        if (apple != null)
+        {
+            apple.transform.position = transform.position;
+        }
     }
 
 }

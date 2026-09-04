@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
         dialogs = otherDialogs;
         otherImage.sprite = dialogerImage;
         dialogText.text = dialogs[0];
-        // »ç°ú ¹à°Ô »õ ¾îµÓ°Ôw
+        // »ç°ú ¹à°Ô »õ ¾îµÓ°Ô
         otherImage.color = Color.gray;
     }
 

@@ -31,20 +31,25 @@ public class RobinController : MonoBehaviour
 
     private void Start()
     {
+        // 못 날아가게 한다.
         canFly = false;
     }
 
     private void Update()
     {
+        // apple의 Transform;
+        // robin의 Transform;
         appleTr = apple.transform;
         robinTr = robin.transform;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            // 사과와 대상 오브젝트와의 거리.
             bool isClosed = CheckDistance();
 
             if (isClosed == true)
             {
+                // 
                 TakeApple();
                 canFly = true;
                 GameObject.Find("FadeOut").GetComponent<FadeOut>().StartFade();
@@ -74,7 +79,8 @@ public class RobinController : MonoBehaviour
         stage++; // stage = stage + 1와 같다.
 
         SoundManager.instance.StartBGM(stage);
-        SceneManager.LoadScene(stage.ToString());
+        // SceneManager.LoadScene(stage.ToString());
+        LoadingManager.LoadScene(stage.ToString());
     }
 
     bool CheckDistance()
