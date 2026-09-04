@@ -5,7 +5,7 @@ public class AppleController : MonoBehaviour
     AudioSource audioSource;
     Rigidbody2D rBody;
     public Transform appleVisual;
-    public AudioClip landingSound;
+    public AudioClip jumpSound;
 
     // 움직이는 속도 조정.
     public float movePower = 20f;
@@ -89,6 +89,7 @@ public class AppleController : MonoBehaviour
         // 스페이스 키를 누르고 linearVelocityY가 0 이라면 Vector2.up 에 jumpPower만큼 곱해 위로 힘을 준다.
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(this.rBody.linearVelocityY) <= 0.1f)
         {
+            audioSource.PlayOneShot(jumpSound);
             rBody.AddForce(Vector2.up * jumpPower);
         }
     }

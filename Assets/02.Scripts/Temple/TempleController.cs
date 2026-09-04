@@ -3,14 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class TempleController : MonoBehaviour
 {
+    AudioSource audioSource;
     GameObject apple;
     Transform spawnPosTr;
     Transform appleTr;
     float interactionDist = 4f;
+    public AudioClip openDoor;
 
     private void Awake()
     {
         apple = GameObject.Find("Apple");
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -28,6 +32,7 @@ public class TempleController : MonoBehaviour
 
             if (isClosed == true)
             {
+                audioSource.PlayOneShot(openDoor);
                 spawnPosTr = GameObject.Find("SpawnPos").transform;
                 appleTr.position = spawnPosTr.position;
             }

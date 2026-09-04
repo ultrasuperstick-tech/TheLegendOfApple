@@ -6,6 +6,7 @@ public class RobinController : MonoBehaviour
     GameObject apple;
     GameObject robin;
     public Transform applePos;
+    SoundManager soundManager;
     Transform appleTr;
     Transform robinTr;
     Animator animator;
@@ -14,15 +15,18 @@ public class RobinController : MonoBehaviour
     float interactionDist = 2f;
     float flyTimer = 0;
     float passTime = 5;
+    public StageValue stage = StageValue.Stage1;
     public float robinSpeed = 1;
     public bool canFly;
 
     private void Awake()
     {
+        // Ä³½Ì
         apple = GameObject.Find("Apple");
         robin = GameObject.Find("Robin");
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        SoundManager soundManager = GetComponent<SoundManager>();
     }
 
     private void Start()
@@ -67,7 +71,10 @@ public class RobinController : MonoBehaviour
 
     void SceneSwitch()
     {
-        SceneManager.LoadScene("Stage2");
+        stage++; // stage = stage + 1¿Í °°´Ù.
+
+        SoundManager.instance.StartBGM(stage);
+        SceneManager.LoadScene(stage.ToString());
     }
 
     bool CheckDistance()
