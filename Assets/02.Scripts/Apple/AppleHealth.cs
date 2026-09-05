@@ -110,6 +110,11 @@ public class AppleHealth : MonoBehaviour
         // hp바에서 데미지 만큼 빼 보여줌.
         hp = hp - damage;
 
+        ShowHp();
+    }
+
+    public void ShowHp()
+    {
         hpBar.fillAmount = hp / maxHp;
         hpText.text = hpBar.fillAmount * 100 + "%";
     }

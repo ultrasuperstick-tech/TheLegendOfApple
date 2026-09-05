@@ -43,7 +43,7 @@ public class LoadingManager : MonoBehaviour
             // 진행도가 90% 이상이면 천천히 반영.
             else
             {
-                timer += Time.unscaledDeltaTime  * 0.2f;
+                timer += Time.unscaledDeltaTime;
 
                 // Mathf.Lerp(A, B, Time);
                 // Time이 0이면 A

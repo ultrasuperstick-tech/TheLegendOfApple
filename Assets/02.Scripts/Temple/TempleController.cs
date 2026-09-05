@@ -9,6 +9,7 @@ public class TempleController : MonoBehaviour
     Transform appleTr;
     float interactionDist = 4f;
     public AudioClip openDoor;
+    public bool quizEnd = false;
 
     private void Awake()
     {
@@ -19,13 +20,17 @@ public class TempleController : MonoBehaviour
 
     private void Start()
     {
+        quizEnd = false;
         appleTr = apple.transform;
     }
 
     private void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.E))
+        if (quizEnd == true)
+        {
+            this.transform.position += Vector3.down * Time.deltaTime;
+        }
+        if (Input.GetKeyDown(KeyCode.E) && quizEnd == false)
         {
 
             bool isClosed = CheckDistance();
@@ -41,7 +46,7 @@ public class TempleController : MonoBehaviour
 
     bool CheckDistance()
     {
-        bool isClosed = false; // 사과와 로빈이 충분히 가까운지를 판단.
+        bool isClosed = false; // 사과와 신전이 충분히 가까운지를 판단.
 
         float distance = (transform.position - appleTr.position).magnitude;
 

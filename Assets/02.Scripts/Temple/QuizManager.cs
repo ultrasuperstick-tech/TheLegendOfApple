@@ -18,6 +18,13 @@ public class QuizManager : MonoBehaviour
     Transform appleTr; // 사과 트렌스폼.
     Transform exitPos;
     public float interactionDist;
+    AppleHealth appleHealth;
+    TempleController templeController;
+    GameObject apple;
+    GameObject temple;
+    AudioSource audioSource;
+    public AudioClip correctAnswer;
+    public AudioClip wrongAnswer;
 
     // public List<Quiz> quizList = new List<Quiz>();
     public Quiz quiz = new Quiz();
@@ -35,7 +42,12 @@ public class QuizManager : MonoBehaviour
 
     private void Awake()
     {
-        appleTr = GameObject.Find("Apple").transform;
+        apple = GameObject.Find("Apple");
+        temple = GameObject.Find("Temple");
+        appleTr = apple.transform;
+        appleHealth = apple.GetComponent<AppleHealth>();
+        templeController = temple.GetComponent<TempleController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -51,6 +63,20 @@ public class QuizManager : MonoBehaviour
 
             if (isClosed == true)
             {
+                if (SceneManager.GetActiveScene().name == "Stage2")
+                {
+                    quiz.quiz = "사과를 자르면 갈색으로 변하는 가장 직접적인 원인은 무엇일까?";
+                    quiz.selectA = "산소와 반응한 포도당이\n 갈변한다";
+                    quiz.selectB = "폴리페놀 화합물이 \n폴리페놀 산화효소(PPO)에 의해 산화된다";
+                    quiz.answer = 1;
+                }
+                if (SceneManager.GetActiveScene().name == "Stage3")
+                {
+                    quiz.quiz = "가장 강한 사과는 무엇이냐";
+                    quiz.selectA = "단단한 사과";
+                    quiz.selectB = "끝가지 포기하지 않는 사과";
+                    quiz.answer = 0;
+                }
                 Debug.Log("상호작용");
                 quizPanel.SetActive(true);
                 QuizStart();
@@ -97,11 +123,22 @@ public class QuizManager : MonoBehaviour
         if (quiz.answer == answer)
         {
             Debug.Log("정답입니다.");
+            audioSource.PlayOneShot(correctAnswer);
+            if (appleHealth.hp >= 80)
+            {
+                appleHealth.hp = appleHealth.maxHp;
+            }
+            else
+            {
+                appleHealth.hp += 20;
+            }
 
+            appleHealth.ShowHp();
         }
         else
         {
             Debug.Log("오답입니다.");
+            audioSource.PlayOneShot(wrongAnswer);
         }
 
         QuizEnd();
@@ -111,5 +148,6 @@ public class QuizManager : MonoBehaviour
     void QuizEnd()
     {
         quizPanel.SetActive(false);
+        templeController.quizEnd = true;
     }
 }

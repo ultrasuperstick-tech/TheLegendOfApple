@@ -252,8 +252,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  jumpPower: 500
-  distance: 1.5
+  jumpPower: 100
+  distance: 1
 --- !u!1 &2467544840576878641
 GameObject:
   m_ObjectHideFlags: 0

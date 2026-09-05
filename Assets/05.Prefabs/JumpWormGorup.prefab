@@ -228,5 +228,5 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  jumpPower: 500
-  distance: 1.5
+  jumpPower: 100
+  distance: 1
