@@ -69,7 +69,7 @@ public class RobinController : MonoBehaviour
         {
             canFly = false;
             appleTr.position = Vector3.zero;
-            apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            // apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             SceneSwitch();
         }
     }

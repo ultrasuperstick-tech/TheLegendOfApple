@@ -5383,6 +5383,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7688833911297137774, guid: 4bcaa12c14cfdda41b75b978d6fb3bf8, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7721106678472829074, guid: 4bcaa12c14cfdda41b75b978d6fb3bf8, type: 3}
       propertyPath: m_Name
       value: Apple

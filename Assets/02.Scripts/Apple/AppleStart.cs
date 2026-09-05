@@ -7,9 +7,9 @@ public class AppleStart : MonoBehaviour
     private void Start()
     {
         apple = GameObject.Find("Apple");
-        Debug.Log(apple.name);
         if (apple != null)
         {
+            apple.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             apple.transform.position = transform.position;
         }
     }
