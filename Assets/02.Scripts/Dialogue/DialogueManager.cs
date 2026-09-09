@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    DialogDetection dialogDetection;
     public Image player;
     public Sprite playerSprite;
     public Image otherImage;
     public GameObject dialog;
-    public bool canDailog;
-    public bool isDailog;
+    public GameObject issac;
+    public bool isDailog; // 대화 가능하냐 - 끝나면 false.
     int textIndex = 0;
 
     public string[] dialogs;
@@ -19,14 +20,15 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         player.sprite = playerSprite;
-        canDailog = false;
         isDailog = true;
         textIndex = 0;
+
     }
-    public void SetDialog(string[] otherDialogs, Sprite dialogerImage)
+    public void SetDialog(string[] otherDialogs, Sprite dialogerImage, DialogDetection dialogDetection)
     {
         dialogs = otherDialogs;
         otherImage.sprite = dialogerImage;
+        this.dialogDetection = dialogDetection;
         dialogText.text = dialogs[0];
         // 사과 밝게 새 어둡게
         otherImage.color = Color.gray;
@@ -34,7 +36,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (canDailog == true)
+        if (dialogDetection.canDailog == true)
         {
             dialog.SetActive(true);
 
@@ -56,7 +58,7 @@ public class DialogueManager : MonoBehaviour
                 if (textIndex >= dialogs.Length)
                 {
                     dialog.SetActive(false);
-                    canDailog = false;
+                    dialogDetection.canDailog = false;
                     isDailog = false;
                     return;
                 }

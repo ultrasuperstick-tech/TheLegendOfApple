@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -10,6 +8,7 @@ public class MainMenu : MonoBehaviour
         if (Input.anyKeyDown)
         {
             SceneManager.LoadScene("Stage1");
+
         }
     }
 }
