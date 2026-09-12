@@ -2614,7 +2614,7 @@ GameObject:
   - component: {fileID: 825531733}
   - component: {fileID: 825531732}
   - component: {fileID: 825531734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ReachableTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

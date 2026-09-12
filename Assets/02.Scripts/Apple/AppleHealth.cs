@@ -78,6 +78,7 @@ public class AppleHealth : MonoBehaviour
         // ¿¡¹ú·¹¶û Ãæµ¹ÇßÀ»¶§.
         if ( collision.gameObject.CompareTag("Bug"))
         {
+            Debug.Log(collision.gameObject.name);
             WormDamage wormDamage = collision.gameObject.GetComponent<WormDamage>();
             float enemyPosX = collision.gameObject.transform.position.x;
 
