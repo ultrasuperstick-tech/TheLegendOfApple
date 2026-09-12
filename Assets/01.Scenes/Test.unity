@@ -562,7 +562,7 @@ MonoBehaviour:
   playerSprite: {fileID: 21300000, guid: f7de31b52471fb946a8467dbc0519f18, type: 2}
   otherImage: {fileID: 1348963954}
   dialog: {fileID: 418258410}
-  canDailog: 0
+  issac: {fileID: 0}
   isDailog: 0
   dialogs:
   - "\uC548\uB155\uD558\uC138\uC694"
@@ -778,6 +778,7 @@ MonoBehaviour:
   - "\uC548\uB155 \uC0C8\uC57C"
   - "\uC548\uB155 \uC0AC\uACFC\uC57C"
   - "\uB9CC\uB098\uC11C \uBC18\uAC00\uC6CC (\uC0AC\uACFC)"
+  canDailog: 0
 --- !u!4 &1013276850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4062371241864794862, guid: 4bcaa12c14cfdda41b75b978d6fb3bf8, type: 3}

@@ -8,6 +8,7 @@ public class IssacController : MonoBehaviour
     public GameObject issacRun;
     public GameObject apple;
     DialogueManager dialogueManager;
+    DialogDetection dialogDetection;
     Rigidbody2D appleRBody;
     public float issacSpeed;
     public bool startIntro = false;
@@ -16,6 +17,7 @@ public class IssacController : MonoBehaviour
     {
         appleRBody = apple.GetComponent<Rigidbody2D>();
         dialogueManager = GetComponent<DialogueManager>();
+        dialogDetection = issac.GetComponent<DialogDetection>();
     }
     private void Start()
     {
@@ -30,9 +32,19 @@ public class IssacController : MonoBehaviour
         if (startIntro == true)
         {
             appleRBody.constraints = RigidbodyConstraints2D.FreezeAll;
-            if (dialogueManager.isDailog == false)
+            if (dialogDetection.isDailog == false)
             {
+                issac.SetActive(false);
+                issacRun.SetActive(true);
 
+                issacRun.transform.position += Vector3.right * issacSpeed * Time.deltaTime;
+
+                if (issacRun.transform.position.x >= 1)
+                {
+                    issacRun.SetActive(false);
+                    startIntro = false;
+                    appleRBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                }
             }
         }
     }

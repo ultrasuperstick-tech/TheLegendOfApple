@@ -8,12 +8,18 @@ public class DialogDetection : MonoBehaviour
 
     public Sprite dialogerImage;
     public string[] dialoges;
-    public bool canDailog; // true면 대화창 무조건 열림. 대화 1번 하고나면 false
+    public bool canDailog = false; // true면 대화창 무조건 열림. 대화 1번 하고나면 false
+    public bool isDailog = true; // 대화 가능하냐 - 끝나면 false.
+
+    private void Awake()
+    {
+        canDailog = false;
+        isDailog = true;
+    }
 
     private void Start()
     {
         appleTr = GameObject.Find("Apple").transform;
-        canDailog = false;
     }
 
     private void Update()
@@ -21,7 +27,7 @@ public class DialogDetection : MonoBehaviour
         // 만약에 E키를 누른다면.
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (dialogueManager.isDailog == true) // 대화 가능하면 대화 진행
+            if (isDailog == true) // 대화 가능하면 대화 진행
             {
                 // 사과와 이 오브젝트의 거리를 측정하여 조건을 충족한다면 isClosed가 참이 된다.
                 bool isClosed = CheckDistance();

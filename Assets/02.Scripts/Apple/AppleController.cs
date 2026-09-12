@@ -21,6 +21,19 @@ public class AppleController : MonoBehaviour
     // 숫자가 작을수록 사과 그림이 천천히 회전함
     public float rollingSpeed = 300f;
 
+    // 1. 현재 사과가 땅에 닿아있는 상태인지 -> 땅에 닿아 있는 상태여야 점프 가능 (즉, 벽에 붙에 붙어서는 점프가 풀가능하다.)
+    // ㄴ> Ray를 쏨(바닥으로)
+    // ㄴ> Ray가 Hit된 지점과 사과와의 거리를 구함. (사과의 반지름보다 걸리가 길면 공중)
+
+    // 2. 땅의 마찰력을 0으로 설정 (땅에 닿아있다면 사과를 감속) -> 벽에 붙지 않게 됨.
+
+    public LayerMask ground;
+
+    CircleCollider2D appleCollider;
+
+    float offset = 0.05f;
+
+    public float brakePower = 5; // 초당 줄어드는 수평 속도 (마찰력)
     private void Awake()
     {
         // 리지드바디 컴포넌트 캐싱.
@@ -30,6 +43,8 @@ public class AppleController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         rBody.freezeRotation = true;
         DontDestroyOnLoad(gameObject);
+
+        appleCollider = GetComponent<CircleCollider2D>();
     }
 
     // 1초에 60번만 작동함 움직임을 관리할때는 이게 나아서 이렇게 함.
@@ -59,6 +74,8 @@ public class AppleController : MonoBehaviour
             // 플래이어의 회전속도를 담당함.
             AppleSpin();
         }
+
+        Friction(); // 마찰력 작용 함수
     }
     private void Update()
     {
@@ -86,14 +103,38 @@ public class AppleController : MonoBehaviour
 
     void AppleJump()
     {
-        // 스페이스 키를 누르고 linearVelocityY가 0 이라면 Vector2.up 에 jumpPower만큼 곱해 위로 힘을 준다.
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(this.rBody.linearVelocityY) <= 0.1f)
+        if (IsGrounded())
         {
-            audioSource.PlayOneShot(jumpSound);
-            rBody.AddForce(Vector2.up * jumpPower);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                audioSource.PlayOneShot(jumpSound);
+                rBody.AddForce(Vector2.up * jumpPower);
+            }
         }
+        // 스페이스 키를 누르고 linearVelocityY가 0 이라면 Vector2.up 에 jumpPower만큼 곱해 위로 힘을 준다.
+        //if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(this.rBody.linearVelocityY) <= 0.1f)
+        //{
+        //    audioSource.PlayOneShot(jumpSound);
+        //    rBody.AddForce(Vector2.up * jumpPower);
+        //}
     }
 
+    void Friction() // 마찰력 작용 함수
+    {
+        // 이동중이거나 공중에 있을 땐 브레이크 동작  X
+        if (moveInput != 0f || IsGrounded() == false)
+        {
+            return;
+        }
+
+        // 현재 속도(방향 + 크기) 구하기
+        Vector2 velocity = rBody.linearVelocity;
+
+        // x축 이동속도 감소시키기
+        velocity.x = Mathf.MoveTowards(velocity.x, 0f, brakePower * Time.fixedDeltaTime);
+        // 속도 적용하기
+        rBody.linearVelocity = velocity;
+    }
     void AppleSpin()
     {
         // 이동 속도는 유지하면서 그림만 천천히 회전.
@@ -126,5 +167,25 @@ public class AppleController : MonoBehaviour
     public bool GetMove()
     {
         return canMove;
+    }
+
+    bool IsGrounded()
+    {
+        // 사과의 밑으로 Ray 쏘기
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, float.MaxValue, ground);
+
+        // 사과로부터 땅까지의 거리
+        float distance = Vector2.Distance(transform.position, hit.point);
+
+        // 땅에 닿아 있는 상태
+        if (distance < appleCollider.radius + offset)
+        {
+            return true;
+        }
+        // 공중에 떠 있는 상태
+        else
+        {
+            return false;
+        }
     }
 }

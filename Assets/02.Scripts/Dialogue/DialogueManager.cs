@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
     public Image otherImage;
     public GameObject dialog;
     public GameObject issac;
-    public bool isDailog; // 대화 가능하냐 - 끝나면 false.
     int textIndex = 0;
 
     public string[] dialogs;
@@ -20,12 +19,12 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         player.sprite = playerSprite;
-        isDailog = true;
         textIndex = 0;
-
     }
     public void SetDialog(string[] otherDialogs, Sprite dialogerImage, DialogDetection dialogDetection)
     {
+        dialog.SetActive(true);
+
         dialogs = otherDialogs;
         otherImage.sprite = dialogerImage;
         this.dialogDetection = dialogDetection;
@@ -36,9 +35,12 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        if (dialogDetection == null)
+        {
+            return;
+        }
         if (dialogDetection.canDailog == true)
         {
-            dialog.SetActive(true);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -59,7 +61,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     dialog.SetActive(false);
                     dialogDetection.canDailog = false;
-                    isDailog = false;
+                    dialogDetection.isDailog = false;
                     return;
                 }
 
