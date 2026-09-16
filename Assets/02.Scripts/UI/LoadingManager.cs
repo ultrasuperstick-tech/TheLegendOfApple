@@ -7,7 +7,11 @@ public class LoadingManager : MonoBehaviour
 {
     static string nextScene;
     public Image fillImg;
+    public TMP_Text tip;
     public TMP_Text progressText;
+    int randomTip;
+
+    public string[] Tips;
 
     private void Start()
     {
@@ -20,11 +24,17 @@ public class LoadingManager : MonoBehaviour
         nextScene = sceneName;
         SceneManager.LoadScene("Loading");
     }
+    void ChangeTip()
+    {
+        randomTip = Random.Range(0, Tips.Length);
+        tip.text = Tips[randomTip];
+    }
 
     IEnumerator LoadScene()
     {
         // 비동기 씬 로드
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        ChangeTip();
 
         // 다음씬 로딩이 100%가 되어도 씬이 넘어가는 것을 방지.
         op.allowSceneActivation = false; 

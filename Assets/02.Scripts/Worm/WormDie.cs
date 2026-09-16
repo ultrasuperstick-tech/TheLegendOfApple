@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class WormDie : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class WormDie : MonoBehaviour
     public float jumpPower = 100;
     public float distoryTime = 5;
     public GameObject spikeEffect;
+    AudioSource audioSource;
+    public AudioClip wormDieSound;
 
     private void Awake()
     {
@@ -16,12 +19,15 @@ public class WormDie : MonoBehaviour
         parentTransform = transform.parent;
         parentGameObject = parentTransform.gameObject;
         parentRBody = parentGameObject.GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
+        gameObject.GetComponent<Collider2D>().isTrigger = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == apple)
         {
+            audioSource.PlayOneShot(wormDieSound);
             parentRBody.freezeRotation = false;
             parentRBody.AddTorque(jumpPower * 10);
             Instantiate(spikeEffect, transform.position, transform.rotation);

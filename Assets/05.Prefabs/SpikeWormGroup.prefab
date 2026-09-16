@@ -118,7 +118,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 18
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 565521202965635644, guid: 499d8890f9ffa174ab5c92bcc4c4a145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -159,7 +159,6 @@ MonoBehaviour:
   firePoint: {fileID: 8025144317810407665}
   spikePrefab: {fileID: 7764396935600694086, guid: 62a3c066195c5e74d91db458da620287, type: 3}
   senseDist: 10
-  spikeTimer: 0
   spikecooltime: 3
 --- !u!50 &6945495658451194558
 Rigidbody2D:
@@ -226,7 +225,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 10.18, y: 7.57}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
