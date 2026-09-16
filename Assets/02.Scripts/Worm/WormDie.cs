@@ -8,7 +8,8 @@ public class WormDie : MonoBehaviour
     Rigidbody2D parentRBody;
     public float jumpPower = 100;
     public float distoryTime = 5;
-    
+    public GameObject spikeEffect;
+
     private void Awake()
     {
         apple = GameObject.Find("Apple");
@@ -21,6 +22,9 @@ public class WormDie : MonoBehaviour
     {
         if (collision.gameObject == apple)
         {
+            parentRBody.freezeRotation = false;
+            parentRBody.AddTorque(jumpPower * 10);
+            Instantiate(spikeEffect, transform.position, transform.rotation);
             parentRBody.AddForceY(jumpPower, ForceMode2D.Impulse);
             parentGameObject.GetComponent<SurpassWorm>().enabled = false;
             parentGameObject.GetComponent<Collider2D>().enabled = false;

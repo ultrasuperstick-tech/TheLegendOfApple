@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 499d8890f9ffa174ab5c92bcc4c4a145
+guid: c4fc75c15df012848ad46fc5f00e8ee1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 565521202965635644
-    second: Hedgehog_0
+      213: 5232314168200466303
+    second: Issac_Portrait_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hedgehog_0
+      name: Issac_Portrait_0
       rect:
         serializedVersion: 2
-        x: 131
-        y: 217
-        width: 1018
-        height: 757
+        x: 30
+        y: 7
+        width: 1191
+        height: 1247
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c32e7bfa98229d700800000000000000
-      internalID: 565521202965635644
+      spriteID: f7f05d4930aec9840800000000000000
+      internalID: 5232314168200466303
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hedgehog_0: 565521202965635644
+      Issac_Portrait_0: 5232314168200466303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

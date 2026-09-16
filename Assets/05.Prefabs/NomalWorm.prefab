@@ -201,7 +201,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1538945402469794377
 MonoBehaviour:
@@ -391,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WormDie
   jumpPower: 100
   distoryTime: 5
+  spikeEffect: {fileID: 80274526920644018, guid: d94b43fac082ce2418a6b43e0eaac386, type: 3}
 --- !u!50 &8112147176121064712
 Rigidbody2D:
   serializedVersion: 5

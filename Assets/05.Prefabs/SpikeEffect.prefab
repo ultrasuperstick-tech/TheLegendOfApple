@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1439427174876515964}
   - component: {fileID: 8570547819435658044}
   - component: {fileID: 2209515787519252385}
+  - component: {fileID: -3725565607012046393}
   m_Layer: 0
   m_Name: SpikeEffect
   m_TagString: Untagged
@@ -4894,3 +4895,15 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &-3725565607012046393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80274526920644018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78cd9446983c40a4ea8642b89e41270a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyEfect

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     DialogDetection dialogDetection;
+    public LetterBoxController letterBoxController;
     public Image player;
     public Sprite playerSprite;
     public Image otherImage;
@@ -15,6 +16,11 @@ public class DialogueManager : MonoBehaviour
     public string[] dialogs;
 
     public TMP_Text dialogText;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -35,12 +41,14 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+
         if (dialogDetection == null)
         {
             return;
         }
         if (dialogDetection.canDailog == true)
         {
+            letterBoxController.ShowLetterBox();
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -62,6 +70,7 @@ public class DialogueManager : MonoBehaviour
                     dialog.SetActive(false);
                     dialogDetection.canDailog = false;
                     dialogDetection.isDailog = false;
+                    letterBoxController.HideLetterBox();
                     return;
                 }
 

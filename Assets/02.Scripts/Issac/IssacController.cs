@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class IssacController : MonoBehaviour
 {
-    public GameObject letterBox;
     public GameObject issac;
     public GameObject issacRun;
     public GameObject apple;
@@ -21,7 +20,6 @@ public class IssacController : MonoBehaviour
     }
     private void Start()
     {
-        letterBox.SetActive(false);
         issacRun.SetActive(false);
 
         startIntro = true;
