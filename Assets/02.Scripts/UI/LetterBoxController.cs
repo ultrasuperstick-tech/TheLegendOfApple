@@ -38,7 +38,7 @@ public class LetterBoxController : MonoBehaviour
 
     IEnumerator ShowLetterBoxCo()
     {
-        while (transform.localScale.x > 1)
+        while (transform.localScale.x > 1.1)
         {
             transform.localScale -= new Vector3(speed, speed, 0) * Time.deltaTime;
             yield return null;
