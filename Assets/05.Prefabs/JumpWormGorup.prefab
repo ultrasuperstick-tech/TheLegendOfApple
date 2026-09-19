@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4046716847739225984}
   - component: {fileID: 7205275917531327101}
   - component: {fileID: 8284173770083975978}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 615922633023982357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0039, y: 0.319, z: 0}
-  m_LocalScale: {x: 1.3195236, y: 0.4933442, z: 1}
+  m_LocalPosition: {x: -0.0464, y: 0.2717, z: 0}
+  m_LocalScale: {x: 1.0389723, y: 0.39876202, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8027895352551228096}
@@ -392,7 +392,7 @@ MonoBehaviour:
   wormSpeed: 1
   originalWormSpeed: 1
   senseDist: 6
-  wormJumpPower: 600
+  wormJumpPower: 6000
   returnDist: 10
 --- !u!61 &627637875665142918
 BoxCollider2D:

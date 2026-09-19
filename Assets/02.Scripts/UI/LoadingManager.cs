@@ -32,6 +32,7 @@ public class LoadingManager : MonoBehaviour
 
     IEnumerator LoadScene()
     {
+        Debug.Log(nextScene);
         // 비동기 씬 로드
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         ChangeTip();

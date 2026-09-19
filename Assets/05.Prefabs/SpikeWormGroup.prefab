@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 145694577044236547}
   - component: {fileID: 6620499606997018667}
   - component: {fileID: 6945495658451194558}
-  - component: {fileID: 8778766041446442194}
   - component: {fileID: 1218396720717146205}
+  - component: {fileID: 7434155550137822164}
   m_Layer: 10
   m_Name: SpikeWorm
   m_TagString: Untagged
@@ -172,7 +172,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -187,7 +187,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8778766041446442194
+--- !u!114 &1218396720717146205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4268817663965338898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93292d4f8d61e8a4e87d57f8215b972e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurpassWorm
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  jumpPower: 100
+  distance: 1.5
+--- !u!61 &7434155550137822164
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,31 +242,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.18, y: 7.57}
+    oldSize: {x: 2.036, y: 1.514}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.036, y: 1.514}
   m_EdgeRadius: 0
---- !u!114 &1218396720717146205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4268817663965338898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93292d4f8d61e8a4e87d57f8215b972e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SurpassWorm
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  jumpPower: 200
-  distance: 1.5
 --- !u!1 &5695827449544523153
 GameObject:
   m_ObjectHideFlags: 0

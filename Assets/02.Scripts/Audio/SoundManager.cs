@@ -7,13 +7,19 @@ public enum StageValue
 
     Stage2, // 1
 
+    Stage3, // 2
+
+    Main // 3
+
 }
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
+    public AudioClip mainManuBGM;
     public AudioClip stage1BGM;
     public AudioClip stage2BGM;
+    public AudioClip stage3BGM;
     public AudioSource bgmSource;
     Coroutine coroutine;
 
@@ -38,6 +44,14 @@ public class SoundManager : MonoBehaviour
         else if (stage == StageValue.Stage2)
         {
             bgmSource.clip = stage2BGM;
+        }
+        else if (stage == StageValue.Stage3)
+        {
+            bgmSource.clip = stage3BGM;
+        }
+        else if (stage == StageValue.Main)
+        {
+            bgmSource.clip = mainManuBGM;
         }
 
         bgmSource.Play();
