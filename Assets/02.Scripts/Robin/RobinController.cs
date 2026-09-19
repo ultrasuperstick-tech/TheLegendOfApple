@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RobinController : MonoBehaviour
 {
@@ -39,8 +38,9 @@ public class RobinController : MonoBehaviour
     {
         // apple¿« Transform;
         // robin¿« Transform;
-        appleTr = apple.transform;
-        robinTr = robin.transform;
+
+            appleTr = apple.transform;
+            robinTr = robin.transform;
 
         if (Input.GetKeyDown(KeyCode.E))
         {

@@ -21,8 +21,13 @@ public class CameraController : MonoBehaviour
     {
         // apple 오브젝트 캐싱.
         apple = GameObject.Find("Apple");
-        // 사과의 리지드바디 컴포넌트 캐싱.
-        appleRBody = apple.GetComponent<Rigidbody2D>();
+
+        if (apple != null)
+        {
+            // 사과의 리지드바디 컴포넌트 캐싱.
+            appleRBody = apple.GetComponent<Rigidbody2D>();
+        }
+
         DontDestroyOnLoad(gameObject);
     }
 

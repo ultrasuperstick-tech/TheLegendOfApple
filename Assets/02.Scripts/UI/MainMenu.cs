@@ -7,8 +7,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManager.LoadScene("Stage1");
-
+            LoadingManager.LoadScene(StageValue.Stage1.ToString());
         }
     }
 }

@@ -3,14 +3,13 @@ using System.Collections;
 
 public enum StageValue
 {
-    Stage1, // 0
+    Main, //0
 
-    Stage2, // 1
+    Stage1, // 1
 
-    Stage3, // 2
+    Stage2, // 2
 
-    Main // 3
-
+    Stage3, // 3
 }
 public class SoundManager : MonoBehaviour
 {
