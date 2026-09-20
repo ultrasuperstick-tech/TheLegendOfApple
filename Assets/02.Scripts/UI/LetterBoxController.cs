@@ -11,7 +11,6 @@ public class LetterBoxController : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         image = GetComponent<Image>();
     }
     private void Start()

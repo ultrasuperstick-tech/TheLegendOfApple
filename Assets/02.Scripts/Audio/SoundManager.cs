@@ -3,18 +3,22 @@ using System.Collections;
 
 public enum StageValue
 {
-    Main, //0
+    Main, // 0
 
     Stage1, // 1
 
     Stage2, // 2
 
     Stage3, // 3
+
+    Clear // 4
 }
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+    MainMenu mainMenu;
 
+    public GameObject mainmenuManager;
     public AudioClip mainManuBGM;
     public AudioClip stage1BGM;
     public AudioClip stage2BGM;
@@ -24,6 +28,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        mainMenu = mainmenuManager.GetComponent<MainMenu>();
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -31,14 +36,13 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         bgmSource.volume = 0f;
-        StartBGM(StageValue.Stage1);
+        StartBGM(StageValue.Main);
     }
-
     public void SwitchBGM(StageValue stage)
     {
-        if (stage == StageValue.Stage1)
+        if (stage == StageValue.Main)
         {
-            bgmSource.clip = stage1BGM;
+            bgmSource.clip = mainManuBGM;
         }
         else if (stage == StageValue.Stage2)
         {
@@ -48,9 +52,13 @@ public class SoundManager : MonoBehaviour
         {
             bgmSource.clip = stage3BGM;
         }
-        else if (stage == StageValue.Main)
+        else if (stage == StageValue.Stage1)
         {
-            bgmSource.clip = mainManuBGM;
+            bgmSource.clip = stage1BGM;
+        }
+        else if (stage == StageValue.Clear)
+        {
+            bgmSource.clip = stage1BGM;
         }
 
         bgmSource.Play();

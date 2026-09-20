@@ -22,7 +22,6 @@ public class RobinController : MonoBehaviour
     {
         // 캐싱
         apple = GameObject.Find("Apple");
-        robin = GameObject.Find("Robin");
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         SoundManager soundManager = GetComponent<SoundManager>();
@@ -37,10 +36,7 @@ public class RobinController : MonoBehaviour
     private void Update()
     {
         // apple의 Transform;
-        // robin의 Transform;
-
-            appleTr = apple.transform;
-            robinTr = robin.transform;
+        appleTr = apple.transform;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -85,7 +81,7 @@ public class RobinController : MonoBehaviour
     {
         bool isClosed = false; // 사과와 로빈이 충분히 가까운지를 판단.
 
-        float distance = (robinTr.position - appleTr.position).magnitude;
+        float distance = (transform.position - appleTr.position).magnitude;
 
         if (distance < interactionDist)
         {

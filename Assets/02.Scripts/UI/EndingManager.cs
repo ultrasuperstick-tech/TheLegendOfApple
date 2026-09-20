@@ -3,17 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class EndingManager : MonoBehaviour
 {
-    GameObject apple;
+    DialogDetection dialogDetection;
+    public GameObject issac;
 
     private void Start()
     {
-        apple = GameObject.Find("Apple");
+        dialogDetection = issac.GetComponent<DialogDetection>();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject == apple)
+        if (dialogDetection.isDailog == false)
         {
-            SceneManager.LoadScene("Clear");
+            SoundManager.instance.StartBGM(StageValue.Clear);
+            LoadingManager.LoadScene(StageValue.Clear.ToString());
         }
     }
 }
