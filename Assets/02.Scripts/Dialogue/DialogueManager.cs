@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+
     }
 
     private void Start()
@@ -51,7 +52,7 @@ public class DialogueManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                textIndex += 1;
+                textIndex ++;
 
                 if(textIndex % 2 == 0)
                 {
@@ -69,6 +70,8 @@ public class DialogueManager : MonoBehaviour
                     dialog.SetActive(false);
                     dialogDetection.canDailog = false;
                     dialogDetection.isDailog = false;
+                    textIndex = 0;
+
                     letterBoxController.HideLetterBox();
                     return;
                 }

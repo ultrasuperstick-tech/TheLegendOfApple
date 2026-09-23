@@ -28,8 +28,15 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
         mainMenu = mainmenuManager.GetComponent<MainMenu>();
-        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

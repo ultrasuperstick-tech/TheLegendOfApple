@@ -16,6 +16,7 @@ public class RobinDialogue : MonoBehaviour
         if (dialogDetection.isDailog == false)
         {
             robinFly.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }
