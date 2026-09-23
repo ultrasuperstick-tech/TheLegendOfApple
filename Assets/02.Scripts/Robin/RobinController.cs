@@ -72,7 +72,7 @@ public class RobinController : MonoBehaviour
 
     void SceneSwitch()
     {
-        SoundManager.instance.StartBGM(stage);
+        SoundManager.instance.StartBGM(stage);  
         // SceneManager.LoadScene(stage.ToString());
         LoadingManager.LoadScene(stage.ToString());
     }

@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //이 클래스는 HpBar를 조절하는 역할을 가지고 있습니다.
@@ -71,6 +72,15 @@ public class AppleHealth : MonoBehaviour
             appleController.SetMove(true);
             defenselessTimer = 0;
         }
+
+        if (hp <= 0)
+        {
+            Destroy(GameObject.Find("Apple"));
+            Destroy(GameObject.Find("CanvasDefault"));
+            Destroy(Camera.main.gameObject, 0.5f);
+
+            SceneManager.LoadScene("Main");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,7 +88,7 @@ public class AppleHealth : MonoBehaviour
         // 에벌레랑 충돌했을때.
         if ( collision.gameObject.CompareTag("Bug"))
         {
-            Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.gameObject.name);
             WormDamage wormDamage = collision.gameObject.GetComponent<WormDamage>();
             float enemyPosX = collision.gameObject.transform.position.x;
 
