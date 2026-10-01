@@ -9,11 +9,15 @@ public class DialogDetection : MonoBehaviour
     public Sprite dialogerImage;
     public string[] dialoges;
     public bool canDailog = false; // true면 대화창 무조건 열림. 대화 1번 하고나면 false
-    public bool isDailog = true; // 대화 가능하냐 - 끝나면 false.
+    public bool isDailog = true; // 대화 가능하냐 - 끝나면 false
 
     private void Awake()
     {
+        // 대화 중인가? 를 물어보는 변수
+        // 대화 중복방지 (true 일때)
         canDailog = false;
+        // 대화를 하였는가? 를 물어보는 변수
+        // 대화 중복방지 (false 일때)
         isDailog = true;
     }
 
@@ -29,7 +33,7 @@ public class DialogDetection : MonoBehaviour
         {
             if (isDailog == true) // 대화 가능하면 대화 진행
             {
-                // 사과와 이 오브젝트의 거리를 측정하여 조건을 충족한다면 isClosed가 참이 된다.
+                // 사과와 이 오브젝트의 거리를 측정하여 조건을 충족한다면 isClosed가 참이 된다
                 bool isClosed = CheckDistance();
 
                 if (isClosed == true) // 가까이 있으면 대화 진행
