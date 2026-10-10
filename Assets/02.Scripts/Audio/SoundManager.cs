@@ -70,7 +70,7 @@ public class SoundManager : MonoBehaviour
         else if (stage == StageValue.Stage1)
         {
             bgmSource.clip = stage1BGM;
-        }
+        }   
         else if (stage == StageValue.Clear)
         {
             bgmSource.clip = stage1BGM;
