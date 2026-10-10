@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-//이 클래스는 HpBar를 조절하는 역할을 가지고 있습니다.
+//이 클래스는 HpBar를 조절하는 역할을 가지고 있습니다.s
 public class AppleHealth : MonoBehaviour
 {
     Rigidbody2D rBody;
