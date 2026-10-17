@@ -7,7 +7,7 @@ public class RestartManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            Destroy(Camera.main);
+            Destroy(Camera.main.gameObject);
             Destroy(GameObject.Find("Apple"));
 
             SceneManager.LoadScene("Main");

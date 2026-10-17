@@ -74,10 +74,7 @@ public class AppleHealth : MonoBehaviour
 
         if (hp <= 0)
         {
-            if (defenselessTimer > 0)
-            {
-                Physics2D.IgnoreLayerCollision(6, 7, layerCollision);
-            }
+            Physics2D.IgnoreLayerCollision(6, 7, false);
             Destroy(GameObject.Find("Apple"));
             Destroy(GameObject.Find("CanvasDefault"));
             Destroy(Camera.main.gameObject, 0.5f);

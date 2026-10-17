@@ -47,7 +47,7 @@ public class AppleController : MonoBehaviour
         appleCollider = GetComponent<CircleCollider2D>();
     }
 
-    // 1초에 60번만 작동함 움직임을 관리할때는 이게 나아서 이렇게 함.
+    // 1초에 50번만 작동함 움직임을 관리할때는 이게 나아서 이렇게 함.
     private void FixedUpdate()
     {
         if (canMove == true)
@@ -111,12 +111,6 @@ public class AppleController : MonoBehaviour
                 rBody.AddForce(Vector2.up * jumpPower);
             }
         }
-        // 스페이스 키를 누르고 linearVelocityY가 0 이라면 Vector2.up 에 jumpPower만큼 곱해 위로 힘을 준다.
-        //if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(this.rBody.linearVelocityY) <= 0.1f)
-        //{
-        //    audioSource.PlayOneShot(jumpSound);
-        //    rBody.AddForce(Vector2.up * jumpPower);
-        //}
     }
 
     void Friction() // 마찰력 작용 함수

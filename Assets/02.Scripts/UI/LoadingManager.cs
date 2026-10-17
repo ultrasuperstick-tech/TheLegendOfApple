@@ -51,7 +51,7 @@ public class LoadingManager : MonoBehaviour
                 fillImg.fillAmount = op.progress;
                 progressText.text = ((int)(op.progress * 100)).ToString() + "%";
             }
-            // 진행도가 90% 이상이면 천천히 반영.
+            // 진행도가 60% 이상이면 천천히 반영.
             else
             {
                 timer += Time.unscaledDeltaTime;

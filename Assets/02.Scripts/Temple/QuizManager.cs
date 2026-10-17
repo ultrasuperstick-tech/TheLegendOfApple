@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[Serializable]
 public class Quiz
 {
     public string quiz;
@@ -63,6 +62,14 @@ public class QuizManager : MonoBehaviour
 
             if (isClosed == true)
             {
+                if (SceneManager.GetActiveScene().name == "Stage1")
+                {
+                    quiz.quiz = "사과가 웃으면?";
+                    quiz.selectA = "풋사과";
+                    quiz.selectB = "킥킥사과";
+                    quiz.answer = 0;
+                }
+
                 if (SceneManager.GetActiveScene().name == "Stage2")
                 {
                     quiz.quiz = "사과를 자르면 갈색으로 변하는 가장 직접적인 원인은 무엇일까?";
