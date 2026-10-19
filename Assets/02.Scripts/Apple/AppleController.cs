@@ -81,6 +81,11 @@ public class AppleController : MonoBehaviour
     {
         // 플레이어의 점프를 담당함.
         AppleJump();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        { // ESC를 눌렀을때
+            Application.Quit(); // 게임 앱 종료.
+        }
     }
     void AppleMove()
     {
@@ -99,6 +104,8 @@ public class AppleController : MonoBehaviour
         }
         // 좌우로 이동
         rBody.AddForce(Vector2.right * moveInput * movePower);
+
+        
     }
 
     void AppleJump()

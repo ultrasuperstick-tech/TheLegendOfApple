@@ -36,7 +36,7 @@ public class DialogDetection : MonoBehaviour
                 // 사과와 이 오브젝트의 거리를 측정하여 조건을 충족한다면 isClosed가 참이 된다
                 bool isClosed = CheckDistance();
 
-                if (isClosed == true) // 가까이 있으면 대화 진행
+                if (isClosed == true && canDailog != true) // 가까이 있으면 대화 진행
                 {
                     canDailog = true; // true로 바꿔서 대화창 열기
                     dialogueManager.SetDialog(dialoges, dialogerImage, GetComponent<DialogDetection>());

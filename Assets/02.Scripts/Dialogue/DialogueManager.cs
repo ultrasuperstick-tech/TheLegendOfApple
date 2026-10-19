@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
             letterBoxController.ShowLetterBox();
 
             // 마우스를 클릭할때 마다 다음 대화로 넘어감
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
             {
                 textIndex ++;
 
